@@ -1,0 +1,1330 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AnalysisUIOptions">
+    <option name="GROUP_BY_SEVERITY" value="true" />
+  </component>
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="unnamed" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="4271e657-a7de-4864-9b9e-78fd9ea14a76" name="Default Changelist" comment="" />
+    <ignored path="$PROJECT_DIR$/target/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FavoritesManager">
+    <favorites_list name="fish" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/main/webapp/back/js/common.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="255">
+              <caret line="17" column="2" selection-start-line="17" selection-start-column="2" selection-end-line="17" selection-end-column="2" />
+              <folding>
+                <element signature="n#!!doc" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/main/resources/jdbc.properties">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="51">
+              <caret line="3" column="23" lean-forward="true" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>碰</find>
+      <find>杠</find>
+      <find>endhu_this</find>
+      <find>_this</find>
+      <find>点炮</find>
+      <find>setPower(1)</find>
+      <find>setpower(1)</find>
+      <find>fen</find>
+      <find>Fen</find>
+      <find>fa</find>
+      <find>hu_type</find>
+      <find>hu</find>
+      <find>出牌</find>
+      <find>setHu_type</find>
+      <find>七对</find>
+      <find>is_hu</find>
+      <find>End_Game_This</find>
+      <find>giveup_hu</find>
+      <find>异常</find>
+      <find>胡检测</find>
+      <find>is_ting</find>
+      <find>IS_Victory</find>
+      <find>setPower</find>
+      <find>power_number</find>
+      <find>点炮状态</find>
+      <find>conntype</find>
+      <find>断线重连</find>
+      <find>number</find>
+      <find>nobleMahjong</find>
+      <find>商城</find>
+    </findStrings>
+    <replaceStrings>
+      <replace>getUsername</replace>
+      <replace>getWxname</replace>
+      <replace>param</replace>
+      <replace>@ param</replace>
+      <replace>Taihu_Majhong</replace>
+    </replaceStrings>
+  </component>
+  <component name="Git.Settings">
+    <option name="ROOT_SYNC" value="DONT_SYNC" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/main/java/com/zcf/controller/AzjrecordController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zcf/mapper/AzjrecordMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zcf/mapper/AzjrecordMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zcf/mapper/GamePropMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zcf/controller/UserController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zcf/pojo/GameProp.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zcf/controller/GameProp2.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zcf/service/AcommissionServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zcf/mapper/AcommissionMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zcf/mapper/AcommissionMapper.xml" />
+        <option value="$PROJECT_DIR$/src/test/java/mall/TestMP.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zcf/mapper/AcountMapper.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zcf/pojo/Azjrecord.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zcf/service/GamePropServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zcf/service/AcountServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zcf/mapper/UserMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zcf/dao/M_LoginDao.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/request.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zcf/dao/M_GameDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zcf/utils/Mahjong_Util.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zcf/utils/mahjongHuUtils.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zcf/service/UserServiceImpl.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zcf/pojo/RoomBean.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zcf/pojo/UserBean.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zcf/servlet/Lighthouse_GameInterface.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zcf/dao/Mg_GameDao.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zcf/gameController/M_GameService.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zcf/gameController/Mahjong_Socket.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zcf/gameController/Mahjong_Socket_Money.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zcf/mahjong/Public_State.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zcf/mahjong/Establish_PK.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zcf/mahjong/Establish_PK_Money.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zcf/mahjong/Matching_PK.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zcf/mahjong/Matching_PK_Money.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zcf/bean/UserBean.java" />
+        <option value="$PROJECT_DIR$/src/test/java/mall/Test.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/spring/applicationContext.xml" />
+        <option value="$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml" />
+        <option value="$PROJECT_DIR$/pom.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zcf/mahjong/backservlet/BackUserServlet.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zcf/mahjong/bean/Service.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zcf/mahjong/json/Body.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zcf/mahjong/mapper/ServiceMapper.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zcf/mahjong/service/FileService.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/spring/applicationContext-mybatis.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zcf/mahjong/Controller/ServiceController.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zcf/mahjong/service/ServiceService.java" />
+        <option value="$PROJECT_DIR$/src/main/resources/sql.properties" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zcf/mahjong/servlet/Lighthouse_GameInterface.java" />
+        <option value="$PROJECT_DIR$/src/main/java/com/zcf/mahjong/dao/Mg_GameDao.java" />
+        <option value="$PROJECT_DIR$/src/main/webapp/back/js/common.js" />
+      </list>
+    </option>
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="MavenProjectNavigator">
+    <treeState>
+      <expand>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="gameFrame" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+        </path>
+        <path>
+          <item name="" type="16c1761:MavenProjectsStructure$RootNode" />
+          <item name="gameFrame" type="9519ce18:MavenProjectsStructure$ProjectNode" />
+          <item name="Lifecycle" type="58874e2:MavenProjectsStructure$LifecycleNode" />
+        </path>
+      </expand>
+      <select />
+    </treeState>
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="110" />
+    <option name="y" value="177" />
+    <option name="width" value="1940" />
+    <option name="height" value="1000" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="PackagesPane" />
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="Taihu_Majhong" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Taihu_Majhong" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Taihu_Majhong" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Taihu_Majhong" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Taihu_Majhong" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Taihu_Majhong" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="Taihu_Majhong" type="b2602c69:ProjectViewProjectNode" />
+              <item name="Taihu_Majhong" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="main" type="462c0819:PsiDirectoryNode" />
+              <item name="webapp" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1566036342124" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../广麻汇/项目/Guangan_Mahjong" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Project" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="restartRequiresConfirmation" value="false" />
+    <property name="settings.editor.selected.configurable" value="preferences.sourceCode.Java" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\Desktop\开发的项目\水鱼\fish\src\main\java" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\Desktop\开发的项目\太湖麻将\项目\Taihu_Majhong\src\main\webapp\apk" />
+      <recent name="C:\Users\Administrator\Desktop\开发的项目\太湖麻将\项目\Taihu_Majhong\src\main\resources\mappers" />
+      <recent name="C:\Users\Administrator\Desktop\开发的项目\太湖麻将\项目\Taihu_Majhong\src\main\java\com\zcf\mahjong\service" />
+      <recent name="C:\Users\Administrator\Desktop\开发的项目\太湖麻将\项目\Taihu_Majhong\src\main\java\com\zcf\mahjong" />
+      <recent name="C:\Users\Administrator\Desktop\开发的项目\太湖麻将\项目\Taihu_Majhong\src\main\java\com\zcf\mahjong\mapper" />
+    </key>
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="mappers" />
+      <recent name="com.zcf.vo.out" />
+      <recent name="com.zcf.service" />
+      <recent name="com.zcf.controller" />
+      <recent name="com.zcf.gameController.gameUtils" />
+    </key>
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.zcf.pojo" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="RunManager" selected="Tomcat Server.Tomcat 8.0.52">
+    <configuration name="Test" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="mall.Test" />
+      <module name="mahjong" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="mall.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestMP (1)" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="mall.TestMP" />
+      <module name="nobleMahjong" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="mall.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestMP" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="test1.TestMP" />
+      <module name="gameFrame" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="test1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="TestMP.testGenerator (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="mahjong" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="mall.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="mall" />
+      <option name="MAIN_CLASS_NAME" value="mall.TestMP" />
+      <option name="METHOD_NAME" value="testGenerator" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="null.testGenerator" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="mall.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="mall" />
+      <option name="MAIN_CLASS_NAME" value="" />
+      <option name="METHOD_NAME" value="testGenerator" />
+      <option name="TEST_OBJECT" value="method" />
+      <option name="PARAMETERS" value="" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Tomcat 8.0.52" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.0.52" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="OPEN_IN_BROWSER" value="false" />
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/Taihu_Majhong" />
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="Taihu_Majhong:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/Taihu_Majhong" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Tomcat_8_5_38_(1)_nobleMahjong_2" />
+        <option name="JNDI_PORT" value="1020" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="52389" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="gameFrame:war" />
+          <artifact name="nobleMahjong:war exploded" />
+          <artifact name="Taihu_Majhong:war exploded" />
+        </option>
+      </method>
+    </configuration>
+    <configuration name="Tomcat 8.5.38" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.38" ALTERNATIVE_JRE_ENABLED="false" nameIsGenerated="true">
+      <option name="OPEN_IN_BROWSER" value="false" />
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8099/Taihu_Majhong" />
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="Taihu_Majhong:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/Taihu_Majhong_war_exploded" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Tomcat_8_5_38_nobleMahjong" />
+        <option name="HTTP_PORT" value="8099" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="52389" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="gameFrame:war" />
+          <artifact name="nobleMahjong:war exploded" />
+          <artifact name="Taihu_Majhong:war exploded" />
+        </option>
+      </method>
+    </configuration>
+    <configuration default="true" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat 8.5.38" ALTERNATIVE_JRE_ENABLED="false">
+      <option name="OPEN_IN_BROWSER_URL" value="http://localhost:8080/gameFrame" />
+      <option name="UPDATING_POLICY" value="restart-server" />
+      <deployment>
+        <artifact name="gameFrame:war">
+          <settings>
+            <option name="CONTEXT_PATH" value="/gameFrame" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="_gameFrame" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="52389" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="gameFrame:war" />
+          <artifact name="nobleMahjong:war exploded" />
+        </option>
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.TestMP" />
+      <item itemvalue="Application.Test" />
+      <item itemvalue="Application.TestMP (1)" />
+      <item itemvalue="JUnit.null.testGenerator" />
+      <item itemvalue="JUnit.TestMP.testGenerator (1)" />
+      <item itemvalue="Tomcat Server.Tomcat 8.5.38" />
+      <item itemvalue="Tomcat Server.Tomcat 8.0.52" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.TestMP (1)" />
+        <item itemvalue="Application.Test" />
+        <item itemvalue="JUnit.TestMP.testGenerator (1)" />
+        <item itemvalue="JUnit.null.testGenerator" />
+        <item itemvalue="Application.TestMP" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="4271e657-a7de-4864-9b9e-78fd9ea14a76" name="Default Changelist" comment="" />
+      <created>1542769210886</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1542769210886</updated>
+      <workItem from="1542769212373" duration="18463000" />
+      <workItem from="1542848703143" duration="32477000" />
+      <workItem from="1542934960698" duration="32380000" />
+      <workItem from="1543193899751" duration="27923000" />
+      <workItem from="1543280641893" duration="31683000" />
+      <workItem from="1543367096007" duration="7114000" />
+      <workItem from="1543731916379" duration="9385000" />
+      <workItem from="1543799090407" duration="8443000" />
+      <workItem from="1543808094150" duration="18153000" />
+      <workItem from="1543904136159" duration="8110000" />
+      <workItem from="1543971730667" duration="936000" />
+      <workItem from="1543972924758" duration="18759000" />
+      <workItem from="1544058202739" duration="28988000" />
+      <workItem from="1544144575998" duration="15997000" />
+      <workItem from="1544230767649" duration="3618000" />
+      <workItem from="1544235185037" duration="22742000" />
+      <workItem from="1544403994146" duration="21395000" />
+      <workItem from="1544490116884" duration="28416000" />
+      <workItem from="1544576700891" duration="26147000" />
+      <workItem from="1544662734830" duration="20927000" />
+      <workItem from="1544749239923" duration="29491000" />
+      <workItem from="1545009002433" duration="24564000" />
+      <workItem from="1545097610759" duration="13847000" />
+      <workItem from="1545122510642" duration="242000" />
+      <workItem from="1545122778313" duration="161000" />
+      <workItem from="1545122961061" duration="155000" />
+      <workItem from="1545123138744" duration="4320000" />
+      <workItem from="1545181495880" duration="25454000" />
+      <workItem from="1545267600602" duration="20069000" />
+      <workItem from="1545353676458" duration="27968000" />
+      <workItem from="1545613392051" duration="19698000" />
+      <workItem from="1545699461324" duration="24932000" />
+      <workItem from="1545785861295" duration="33497000" />
+      <workItem from="1545872508227" duration="22803000" />
+      <workItem from="1545958921426" duration="19440000" />
+      <workItem from="1546045256983" duration="24164000" />
+      <workItem from="1546391925914" duration="20898000" />
+      <workItem from="1546477225365" duration="24650000" />
+      <workItem from="1546564334715" duration="29244000" />
+      <workItem from="1546667672399" duration="6703000" />
+      <workItem from="1546822821406" duration="31079000" />
+      <workItem from="1546909157524" duration="23718000" />
+      <workItem from="1546996258565" duration="20349000" />
+      <workItem from="1547082131880" duration="27351000" />
+      <workItem from="1547169100646" duration="30483000" />
+      <workItem from="1547427489134" duration="30558000" />
+      <workItem from="1547514086879" duration="26893000" />
+      <workItem from="1547600181632" duration="28881000" />
+      <workItem from="1547687108042" duration="27625000" />
+      <workItem from="1547773258407" duration="29990000" />
+      <workItem from="1548032479658" duration="26879000" />
+      <workItem from="1548119075012" duration="27006000" />
+      <workItem from="1548205253439" duration="29906000" />
+      <workItem from="1548292219163" duration="20063000" />
+      <workItem from="1548378351332" duration="29173000" />
+      <workItem from="1548637215825" duration="31595000" />
+      <workItem from="1548724041629" duration="28335000" />
+      <workItem from="1548810043392" duration="30482000" />
+      <workItem from="1548896422862" duration="31044000" />
+      <workItem from="1549674166184" duration="23908000" />
+      <workItem from="1549760467870" duration="27403000" />
+      <workItem from="1549847450113" duration="25003000" />
+      <workItem from="1549873059799" duration="7063000" />
+      <workItem from="1549933115580" duration="942000" />
+      <workItem from="1549934389808" duration="99000" />
+      <workItem from="1549934995727" duration="18326000" />
+      <workItem from="1550019581324" duration="31054000" />
+      <workItem from="1550106258724" duration="27573000" />
+      <workItem from="1550192481519" duration="23684000" />
+      <workItem from="1550452022449" duration="16726000" />
+      <workItem from="1550538607020" duration="5165000" />
+      <workItem from="1550633701099" duration="9418000" />
+      <workItem from="1550652812814" duration="599000" />
+      <workItem from="1550653518639" duration="610000" />
+      <workItem from="1550654253381" duration="1200000" />
+      <workItem from="1550711072385" duration="6457000" />
+      <workItem from="1550718902766" duration="18142000" />
+      <workItem from="1550797586670" duration="22361000" />
+      <workItem from="1551057253737" duration="31191000" />
+      <workItem from="1551142957897" duration="478000" />
+      <workItem from="1551143442348" duration="24448000" />
+      <workItem from="1551229031418" duration="19304000" />
+      <workItem from="1551315603881" duration="17277000" />
+      <workItem from="1551402446440" duration="25319000" />
+      <workItem from="1551660959837" duration="23069000" />
+      <workItem from="1551747742486" duration="6581000" />
+      <workItem from="1551920356149" duration="3771000" />
+      <workItem from="1552006866017" duration="9573000" />
+      <workItem from="1552096847317" duration="22844000" />
+      <workItem from="1552265377970" duration="16397000" />
+      <workItem from="1552282405144" duration="16786000" />
+      <workItem from="1552352172090" duration="32045000" />
+      <workItem from="1552438970834" duration="18040000" />
+      <workItem from="1552525193968" duration="28046000" />
+      <workItem from="1552611066561" duration="24363000" />
+      <workItem from="1552698203638" duration="2628000" />
+      <workItem from="1552717496613" duration="8493000" />
+      <workItem from="1552878789902" duration="14011000" />
+      <workItem from="1552905777455" duration="490000" />
+      <workItem from="1553220738988" duration="6977000" />
+      <workItem from="1553476272533" duration="19798000" />
+      <workItem from="1553562118557" duration="27264000" />
+      <workItem from="1553648659650" duration="32413000" />
+      <workItem from="1553735000490" duration="29833000" />
+      <workItem from="1553827180921" duration="6492000" />
+      <workItem from="1553907608049" duration="15375000" />
+      <workItem from="1554080405921" duration="23063000" />
+      <workItem from="1554166828573" duration="17184000" />
+      <workItem from="1554253372040" duration="11605000" />
+      <workItem from="1554342028427" duration="14944000" />
+      <workItem from="1554772217301" duration="1923000" />
+      <workItem from="1554797646144" duration="1141000" />
+      <workItem from="1554858292515" duration="599000" />
+      <workItem from="1554944307621" duration="3548000" />
+      <workItem from="1559698574318" duration="12845000" />
+      <workItem from="1559782955570" duration="9537000" />
+      <workItem from="1560131710411" duration="28223000" />
+      <workItem from="1560169391461" duration="2218000" />
+      <workItem from="1560214791707" duration="28186000" />
+      <workItem from="1560309086895" duration="14451000" />
+      <workItem from="1560387597296" duration="34485000" />
+      <workItem from="1560474741798" duration="16702000" />
+      <workItem from="1560560152750" duration="17515000" />
+      <workItem from="1560732555883" duration="37795000" />
+      <workItem from="1560821432689" duration="2838000" />
+      <workItem from="1560825007511" duration="25000" />
+      <workItem from="1560830398159" duration="921000" />
+      <workItem from="1560831412168" duration="658000" />
+      <workItem from="1560833768677" duration="848000" />
+      <workItem from="1560836297859" duration="81000" />
+      <workItem from="1560836400718" duration="1967000" />
+      <workItem from="1560838466438" duration="13929000" />
+      <workItem from="1560905871576" duration="33041000" />
+      <workItem from="1560992185918" duration="234000" />
+      <workItem from="1560993362408" duration="24952000" />
+      <workItem from="1561078007138" duration="18388000" />
+      <workItem from="1561164543993" duration="16110000" />
+      <workItem from="1561337801288" duration="15753000" />
+      <workItem from="1561425195887" duration="4505000" />
+      <workItem from="1561510860889" duration="15147000" />
+      <workItem from="1561596743271" duration="1820000" />
+      <workItem from="1561603051508" duration="11477000" />
+      <workItem from="1561683672244" duration="19230000" />
+      <workItem from="1561770046302" duration="6265000" />
+      <workItem from="1561943508153" duration="12147000" />
+      <workItem from="1562029074464" duration="2695000" />
+      <workItem from="1562033314732" duration="23828000" />
+      <workItem from="1562115660581" duration="10985000" />
+      <workItem from="1562203842452" duration="15698000" />
+      <workItem from="1562288749038" duration="1642000" />
+      <workItem from="1562290410663" duration="19071000" />
+      <workItem from="1562374787518" duration="18759000" />
+      <workItem from="1562547692651" duration="23793000" />
+      <workItem from="1562633751203" duration="29385000" />
+      <workItem from="1562720554229" duration="25319000" />
+      <workItem from="1562749523882" duration="3658000" />
+      <workItem from="1562806925088" duration="3702000" />
+      <workItem from="1562811953170" duration="88000" />
+      <workItem from="1562812063362" duration="176000" />
+      <workItem from="1562812262084" duration="17832000" />
+      <workItem from="1562893186962" duration="28106000" />
+      <workItem from="1562979662537" duration="22626000" />
+      <workItem from="1563152993815" duration="27871000" />
+      <workItem from="1563238874894" duration="17009000" />
+      <workItem from="1563325359181" duration="271000" />
+      <workItem from="1563325652517" duration="1136000" />
+      <workItem from="1563326961562" duration="17492000" />
+      <workItem from="1563411550497" duration="10411000" />
+      <workItem from="1563422838337" duration="8275000" />
+      <workItem from="1563498500760" duration="7536000" />
+      <workItem from="1563605968238" duration="1200000" />
+      <workItem from="1563757269303" duration="24658000" />
+      <workItem from="1563843752351" duration="26964000" />
+      <workItem from="1563929730048" duration="27385000" />
+      <workItem from="1564016354945" duration="30419000" />
+      <workItem from="1564103022939" duration="27299000" />
+      <workItem from="1564189311166" duration="27353000" />
+      <workItem from="1564361850438" duration="30900000" />
+      <workItem from="1564448745686" duration="36095000" />
+      <workItem from="1564535134672" duration="25231000" />
+      <workItem from="1564570293357" duration="3332000" />
+      <workItem from="1564621047844" duration="26463000" />
+      <workItem from="1564707256282" duration="31016000" />
+      <workItem from="1564793392820" duration="28722000" />
+      <workItem from="1564966595978" duration="28248000" />
+      <workItem from="1565053287448" duration="24000000" />
+      <workItem from="1565140209428" duration="12260000" />
+      <workItem from="1565226324380" duration="377000" />
+      <workItem from="1565226978520" duration="2915000" />
+      <workItem from="1565229921590" duration="4297000" />
+      <workItem from="1565312666740" duration="1108000" />
+      <workItem from="1566027338990" duration="8207000" />
+      <workItem from="1566263028506" duration="423000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TestHistory">
+    <history-entry file="TestMP_testGenerator - 2019.01.21 at 11h 15m 48s.xml">
+      <configuration name="TestMP.testGenerator" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestMP_testGenerator - 2019.01.21 at 11h 19m 21s.xml">
+      <configuration name="TestMP.testGenerator" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestMP_testGenerator_(1) - 2019.03.18 at 15h 29m 30s.xml">
+      <configuration name="TestMP.testGenerator (1)" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="null_testGenerator - 2019.03.25 at 14h 40m 11s.xml">
+      <configuration name="null.testGenerator" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestMP_testGenerator_(1) - 2019.03.25 at 14h 40m 23s.xml">
+      <configuration name="TestMP.testGenerator (1)" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestMP_testGenerator_(1) - 2019.03.25 at 14h 41m 06s.xml">
+      <configuration name="TestMP.testGenerator (1)" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestMP_testGenerator_(1) - 2019.03.25 at 14h 45m 27s.xml">
+      <configuration name="TestMP.testGenerator (1)" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestMP_testGenerator_(1) - 2019.04.01 at 10h 28m 43s.xml">
+      <configuration name="TestMP.testGenerator (1)" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestMP_testGenerator_(1) - 2019.04.02 at 15h 02m 49s.xml">
+      <configuration name="TestMP.testGenerator (1)" configurationId="JUnit" />
+    </history-entry>
+    <history-entry file="TestMP_testGenerator_(1) - 2019.04.02 at 15h 03m 30s.xml">
+      <configuration name="TestMP.testGenerator (1)" configurationId="JUnit" />
+    </history-entry>
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="3277107000" />
+  </component>
+  <component name="TodoView">
+    <todo-panel id="selected-file">
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+    <todo-panel id="all">
+      <are-packages-shown value="true" />
+      <is-autoscroll-to-source value="true" />
+    </todo-panel>
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <editor active="true" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49752066" visible="true" weight="0.21539284" />
+      <window_info id="Structure" order="1" sideWeight="0.5024793" side_tool="true" weight="0.18813469" />
+      <window_info id="Designer" order="2" />
+      <window_info id="Image Layers" order="3" />
+      <window_info id="Capture Tool" order="4" />
+      <window_info id="UI Designer" order="5" />
+      <window_info id="Favorites" order="6" sideWeight="0.5005417" side_tool="true" weight="0.16577825" />
+      <window_info id="Web" order="7" side_tool="true" />
+      <window_info anchor="bottom" id="Message" order="0" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32936078" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.4970604" weight="0.2751896" />
+      <window_info anchor="bottom" id="Debug" order="3" sideWeight="0.49545696" weight="0.40628386" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="TODO" order="6" weight="0.32936078" />
+      <window_info anchor="bottom" id="Application Servers" order="7" sideWeight="0.49946696" weight="0.32936078" />
+      <window_info anchor="bottom" id="Spring" order="8" sideWeight="0.49946696" weight="0.32936078" />
+      <window_info anchor="bottom" id="Terminal" order="9" weight="0.32936078" />
+      <window_info anchor="bottom" id="Docker" order="10" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="11" sideWeight="0.504543" side_tool="true" weight="0.28060672" />
+      <window_info anchor="bottom" id="Messages" order="12" sideWeight="0.49946696" weight="0.18959913" />
+      <window_info anchor="bottom" id="Java Enterprise" order="13" weight="0.32936078" />
+      <window_info anchor="bottom" id="Database Changes" order="14" />
+      <window_info anchor="bottom" id="Version Control" order="15" />
+      <window_info anchor="bottom" id="Tail" order="16" />
+      <window_info anchor="bottom" id="Inspection Results" order="17" weight="0.32936078" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.24959914" />
+      <window_info anchor="right" id="Maven" order="3" weight="0.32995737" />
+      <window_info anchor="right" id="Palette" order="4" />
+      <window_info anchor="right" id="Capture Analysis" order="5" />
+      <window_info anchor="right" id="Database" order="6" />
+      <window_info anchor="right" id="Palette&#9;" order="7" />
+      <window_info anchor="right" id="Theme Preview" order="8" />
+      <window_info anchor="right" id="aiXcoder" order="9" weight="0.3292357" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zcf/utils/BaseDao.java" />
+    <entry file="jar://$USER_HOME$/.m2/repository/org/springframework/spring-aop/4.3.1.RELEASE/spring-aop-4.3.1.RELEASE-sources.jar!/org/springframework/aop/framework/ReflectiveMethodInvocation.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="156" selection-start-line="156" selection-end-line="156" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zcf/controller/GameWithdrawController.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zcf/utils/CreaWindow.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zcf/utils/Mahjong_Util.java" />
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_191/src.zip!/java/util/Map.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="204" column="76" lean-forward="true" selection-start-line="204" selection-start-column="76" selection-end-line="204" selection-end-column="76" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zcf/controller/UserController.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zcf/service/UserServiceImpl.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zcf/pojo/UserBean.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zcf/gameController/Mahjong_Socket.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zcf/gameController/Mahjong_Socket_Money.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zcf/utils/mahjongHuUtils.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zcf/pojo/RoomBean.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zcf/gameController/M_GameService.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zcf/mahjong/bean/UserBean.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="17" column="29" lean-forward="true" selection-start-line="17" selection-start-column="29" selection-end-line="17" selection-end-column="29" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zcf/mahjong/mahjong/Establish_PK_Money.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zcf/mahjong/mahjong/Public_State.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1003">
+          <caret line="59" column="22" selection-start-line="59" selection-start-column="22" selection-end-line="59" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#495#519#0" expanded="true" />
+            <element signature="e#598#616#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zcf/mahjong/bean/GameProp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="15" column="23" lean-forward="true" selection-start-line="15" selection-start-column="23" selection-end-line="15" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zcf/mahjong/mahjong/Matching_PK.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zcf/mahjong/mahjong/Matching_PK_Money.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="493">
+          <caret line="30" column="5" selection-start-line="30" selection-start-column="5" selection-end-line="30" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/pom.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1496">
+          <caret line="88" column="36" selection-start-line="88" selection-start-column="36" selection-end-line="88" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zcf/mahjong/mahjong/Establish_PK.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="153">
+          <caret line="9" column="53" selection-start-line="9" selection-start-column="53" selection-end-line="9" selection-end-column="53" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zcf/mahjong/service/M_GameService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="68">
+          <caret line="16" column="13" selection-start-line="16" selection-start-column="13" selection-end-line="16" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/WEB-INF/web.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="680">
+          <caret line="40" column="54" selection-start-line="40" selection-start-column="54" selection-end-line="40" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/mall/Test.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="476">
+          <caret line="31" column="22" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="22" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zcf/mahjong/service/Mahjong_Socket.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="731">
+          <caret line="97" column="16" selection-start-line="97" selection-start-column="16" selection-end-line="97" selection-end-column="16" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/back/js/adver.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="357">
+          <caret line="21" column="41" lean-forward="true" selection-start-line="21" selection-start-column="41" selection-end-line="21" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zcf/mahjong/Controller.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zcf/mahjong/backservlet/BackUserServlet.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="62" column="35" lean-forward="true" selection-start-line="62" selection-start-column="35" selection-end-line="62" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zcf/mahjong/bean/Service.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" column="7" lean-forward="true" selection-start-line="7" selection-start-column="7" selection-end-line="7" selection-end-column="7" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#248#249#0" expanded="true" />
+            <element signature="e#264#265#0" expanded="true" />
+            <element signature="e#295#296#0" expanded="true" />
+            <element signature="e#314#315#0" expanded="true" />
+            <element signature="e#340#341#0" expanded="true" />
+            <element signature="e#356#357#0" expanded="true" />
+            <element signature="e#389#390#0" expanded="true" />
+            <element signature="e#408#409#0" expanded="true" />
+            <element signature="e#434#435#0" expanded="true" />
+            <element signature="e#450#451#0" expanded="true" />
+            <element signature="e#483#484#0" expanded="true" />
+            <element signature="e#502#503#0" expanded="true" />
+            <element signature="e#529#530#0" expanded="true" />
+            <element signature="e#546#547#0" expanded="true" />
+            <element signature="e#581#582#0" expanded="true" />
+            <element signature="e#602#603#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/test/java/mall/TestMP.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mappers/ServiceMapper.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="9" lean-forward="true" selection-start-line="6" selection-start-column="9" selection-end-line="6" selection-end-column="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mybatis/mybatis-config.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="25" lean-forward="true" selection-start-line="14" selection-start-column="25" selection-end-line="14" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zcf/mahjong/mapper/ServiceMapper.xml">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zcf/mahjong/mapper/ServiceMapper.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="102">
+          <caret line="6" column="1" lean-forward="true" selection-start-line="6" selection-start-column="1" selection-end-line="6" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zcf/mahjong/json/serializer/EmojiSerializer.java" />
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zcf/mahjong/json/Meta.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="136">
+          <caret line="8" column="13" selection-start-line="8" selection-start-column="13" selection-end-line="8" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zcf/mahjong/json/Body.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="7" lean-forward="true" selection-start-line="14" selection-start-column="7" selection-end-line="14" selection-end-column="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/mappers/ServiceMapper.java">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/applicationContext.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-37">
+          <caret line="26" column="11" selection-start-line="26" selection-start-column="11" selection-end-line="26" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/applicationContext-MVC.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-448">
+          <caret line="7" column="114" selection-start-line="7" selection-start-column="114" selection-end-line="7" selection-end-column="114" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zcf/mahjong/Controller/ServiceController.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="379">
+          <caret line="57" column="1" lean-forward="true" selection-start-line="57" selection-start-column="1" selection-end-line="57" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zcf/mahjong/service/FileService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="25" column="52" lean-forward="true" selection-start-line="25" selection-start-column="52" selection-end-line="25" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zcf/mahjong/service/ServiceService.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="18" column="42" selection-start-line="18" selection-start-column="42" selection-end-line="18" selection-end-column="42" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/spring/applicationContext-mybatis.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="43" column="11" lean-forward="true" selection-start-line="43" selection-start-column="11" selection-end-line="43" selection-end-column="11" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zcf/mahjong/util/BaseDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-242">
+          <caret line="50" column="21" selection-start-line="50" selection-start-column="21" selection-end-line="50" selection-end-column="21" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zcf/mahjong/servlet/Lighthouse_GameInterface.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="287">
+          <caret line="139" column="48" selection-start-line="139" selection-start-column="48" selection-end-line="139" selection-end-column="48" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/sql.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="28" column="24" lean-forward="true" selection-start-line="28" selection-start-column="24" selection-end-line="28" selection-end-column="24" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/com/zcf/mahjong/dao/Mg_GameDao.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="330" column="28" lean-forward="true" selection-start-line="330" selection-start-column="28" selection-end-line="330" selection-end-column="28" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#682#683#0" expanded="true" />
+            <element signature="e#711#712#0" expanded="true" />
+            <element signature="e#4611#4632#0" expanded="true" />
+            <element signature="e#5227#5248#0" expanded="true" />
+            <element signature="e#7381#7402#0" expanded="true" />
+            <element signature="e#7445#7461#0" expanded="true" />
+            <element signature="e#8053#8074#0" expanded="true" />
+            <element signature="e#8117#8133#0" expanded="true" />
+            <element signature="e#8942#8963#0" expanded="true" />
+            <element signature="e#9006#9022#0" expanded="true" />
+            <element signature="e#9720#9736#0" expanded="true" />
+            <element signature="e#9805#9826#0" expanded="true" />
+            <element signature="e#10422#10443#0" expanded="true" />
+            <element signature="e#10486#10502#0" expanded="true" />
+            <element signature="e#11890#11911#0" expanded="true" />
+            <element signature="e#11954#11970#0" expanded="true" />
+            <element signature="e#12919#12940#0" expanded="true" />
+            <element signature="e#12983#12999#0" expanded="true" />
+            <element signature="e#14820#14841#0" expanded="true" />
+            <element signature="e#14884#14900#0" expanded="true" />
+            <element signature="e#15671#15692#0" expanded="true" />
+            <element signature="e#15735#15751#0" expanded="true" />
+            <element signature="e#19774#19795#0" expanded="true" />
+            <element signature="e#19838#19854#0" expanded="true" />
+            <element signature="e#26392#26408#0" expanded="true" />
+            <element signature="e#26894#26915#0" expanded="true" />
+            <element signature="e#26959#26975#0" expanded="true" />
+            <element signature="e#29442#29463#0" expanded="true" />
+            <element signature="e#29506#29522#0" expanded="true" />
+            <element signature="e#32468#32484#0" expanded="true" />
+            <element signature="e#35834#35850#0" expanded="true" />
+            <element signature="e#36242#36251#0" expanded="true" />
+            <element signature="e#40419#40429#0" expanded="true" />
+            <element signature="e#41193#41214#0" expanded="true" />
+            <element signature="e#42905#42926#0" expanded="true" />
+            <element signature="e#42969#42985#0" expanded="true" />
+            <element signature="e#43604#43625#0" expanded="true" />
+            <element signature="e#43669#43685#0" expanded="true" />
+            <element signature="e#44267#44288#0" expanded="true" />
+            <element signature="e#45385#45401#0" expanded="true" />
+            <element signature="e#46797#46818#0" expanded="true" />
+            <element signature="e#47791#47812#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/webapp/back/js/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="2" selection-start-line="17" selection-start-column="2" selection-end-line="17" selection-end-column="2" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/resources/jdbc.properties">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="51">
+          <caret line="3" column="23" lean-forward="true" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+  <component name="masterDetails">
+    <states>
+      <state key="ArtifactsStructureConfigurable.UI">
+        <settings>
+          <artifact-editor />
+          <last-edited>Taihu_Majhong:war exploded</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.5" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="FacetStructureConfigurable.UI">
+        <settings>
+          <last-edited>Web (Taihu_Majhong)|Web</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="GlobalLibrariesConfigurable.UI">
+        <settings>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="JdkListConfigurable.UI">
+        <settings>
+          <last-edited>1.8</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ModuleStructureConfigurable.UI">
+        <settings>
+          <last-edited>Taihu_Majhong</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+                <option value="0.6" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectJDKs.UI">
+        <settings>
+          <last-edited>1.7</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+      <state key="ProjectLibrariesConfigurable.UI">
+        <settings>
+          <last-edited>Maven: com.alibaba:fastjson:1.2.15</last-edited>
+          <splitter-proportions>
+            <option name="proportions">
+              <list>
+                <option value="0.2" />
+              </list>
+            </option>
+          </splitter-proportions>
+        </settings>
+      </state>
+    </states>
+  </component>
+</project>

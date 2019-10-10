@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:mvc="http://www.springframework.org/schema/mvc"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd">
+
+	<!-- 注解驱动 -->
+	<mvc:annotation-driven />
+	
+	<!-- 扫描Controller -->
+	<context:component-scan base-package="com.zcf" />
+	<!--文件上传的控制 -->
+	<!-- file upload -->
+	<bean id="multipartResolver"
+		class="org.springframework.web.multipart.commons.CommonsMultipartResolver">
+		<property name="maxUploadSize" value="104857600" /><!-- 最大上传100M字节单位 -->
+		<property name="maxInMemorySize" value="2048" /><!-- 2M -->
+		<property name="defaultEncoding" value="UTF-8" />
+	</bean>
+	<!-- 视图解析器 -->
+	<!--<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/WEB-INF/jsp/" />
+		<property name="suffix" value=".jsp" />
+	</bean>
+	<bean
+		class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<property name="prefix" value="/html/" />
+		<property name="suffix" value=".html" />
+	</bean>-->
+	<!-- 请求拦截需求 -->
+	<!-- <mvc:interceptors>
+		<mvc:interceptor>
+			拦截所有的请求
+			<mvc:mapping path="" />
+			但是排除下面这些，也就是不拦截请求
+			<mvc:exclude-mapping path="/account/login" />
+			<mvc:exclude-mapping path="/account/register" />
+			<mvc:exclude-mapping path="/account/send" />
+			<mvc:exclude-mapping path="/account/forget_pass" />
+			<mvc:exclude-mapping path="" />
+			<bean class="com.zcf.common.interceptor.WebInterceptor"></bean>
+		</mvc:interceptor>
+	</mvc:interceptors> -->
+	<!-- 测试socket -->
+  <mvc:default-servlet-handler/>
+  <bean id="handlerMapping" class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping">
+ 	 <property name="order" value="1"></property>
+  </bean>
+  <bean id="handlerAdapter" class="org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter">
+  <!-- 测试socket -->
+  </bean>
+</beans>

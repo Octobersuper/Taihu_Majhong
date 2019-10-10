@@ -1,0 +1,49 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:p="http://www.springframework.org/schema/p"
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xmlns:tx="http://www.springframework.org/schema/tx"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-4.0.xsd
+	http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-4.0.xsd
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx-4.0.xsd
+	http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util-4.0.xsd
+	http://www.springframework.org/schema/task  
+	http://www.springframework.org/schema/task/spring-task-3.2.xsd 
+	">
+
+	<!-- 使用spring自带的占位符替换功能 -->
+	<bean
+		class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+		<!-- 忽略没有找到的资源文件 -->
+		<property name="ignoreResourceNotFound" value="true" />
+		<!-- 配置资源文件 -->
+		<property name="locations">
+			<list>
+				<value>classpath:*.properties</value>
+			</list>
+		</property>
+	</bean>
+	<!--<bean id="userService" class="com.zcf.service.UserServiceImpl"></bean>
+	<bean id="UserService" class="com.zcf.service.UserServiceImpl"></bean>
+	<bean id="pk" class="com.zcf.service.PkRecordTableServiceImpl"></bean>
+	<bean id="ac" class="com.zcf.service.AcountServiceImpl"></bean>
+	<bean id="gp" class="com.zcf.service.GamePropServiceImpl"></bean>-->
+	<!--<bean id="recordService" class="com.zcf.service.RecordService"></bean>-->
+
+	<!-- 定时任务start -->
+	<!--cron定时器配置 -->
+	<context:annotation-config />
+	<bean
+		class="org.springframework.beans.factory.annotation.AutowiredAnnotationBeanPostProcessor" />
+	<context:component-scan
+		base-package="com.zcf" />
+	<!--cron定时器配置 -->
+	<task:annotation-driven />
+	<!-- 定时任务 -->
+
+
+	<!-- 扫描包 -->
+	<context:component-scan base-package="com.zcf" />
+</beans>
