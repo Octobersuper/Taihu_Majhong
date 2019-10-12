@@ -13,7 +13,7 @@ public class Matching_PK {
 	public static RoomBean Matching(UserBean userBean, String roomno){
 		RoomBean roomBean = Public_State.PKMap.get(roomno);
 		roomBean.getLock().lock();
-		//当前房间用户数量未满
+		//当前房间用户数量未满 s
 		if(roomBean.getGame_userlist().size()<roomBean.getMax_person()){
 			roomBean.getGame_userlist().add(userBean);
 			//加入用户位置
