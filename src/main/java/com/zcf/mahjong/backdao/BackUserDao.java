@@ -1139,6 +1139,9 @@ public class BackUserDao {
                 Map<String, Object> map = UtilClass.utilClass.getSqlMap("/sql.properties", baseDao.resultSet,
                         "sql_getUserList");
                 int userid = Integer.parseInt(map.get("userid").toString());
+                if(userid >= 100000){
+                    map.put("zuserid",userid);
+                }
                 if (userid >= 10000 && userid < 100000)
                     map.put("zuserid", 1 + "" + userid);
                 if (userid >= 1000 && userid < 10000)
@@ -1377,7 +1380,7 @@ public class BackUserDao {
     private String getbrand(int value) {
         String brand = "";
         if (value != -1) {
-            brand = "<img src='http://localhost:8088/Taihu_Majhong/back/img/" + value + ".png' width='40px' height='50px'/>";
+            brand = "<img src='http://103.193.175.59:8080/Taihu_Majhong/back/img/" + value + ".png' width='40px' height='50px'/>";
             return brand;
         } else {
             return brand;
@@ -1424,6 +1427,41 @@ public class BackUserDao {
         return null;
     }
 
+    public Object refash(String userid) {
+        String sql = "SELECT diamond from user_table where userid=?";
+        baseDao.executeAll(sql, new Object[]{userid});
+        try {
+            if (baseDao.resultSet.next()) {
+                return baseDao.resultSet.getInt("diamond");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    public BackUserBean dllogin(String phone, String pwd) {
+        String sql = "select * from user_table where phone=? and  password=? and fid = 1";
+        baseDao.executeAll(sql, new Object[]{phone, pwd});
+        try {
+            if (baseDao.resultSet.next()) {
+                BackUserBean backUserBean = new BackUserBean();
+                backUserBean.setBackuserid(1);
+                backUserBean.setBackname(baseDao.resultSet.getString("nickname"));
+                backUserBean.setAccount(baseDao.resultSet.getString("phone"));
+                backUserBean.setPassword(baseDao.resultSet.getString("password"));
+                backUserBean.setTwelve(baseDao.resultSet.getInt("userid"));
+                backUserBean.setEleven(baseDao.resultSet.getInt("money"));
+                return backUserBean;
+            }
+        } catch (SQLException e) {
+            BackUserBean backUserBean = new BackUserBean();
+            backUserBean.setBackuserid(-1);
+            return backUserBean;
+        }
+        return null;
+    }
+
     /**
      * 后台修改用户昵称
      *
@@ -1446,6 +1484,23 @@ public class BackUserDao {
         return baseDao.executeUpdate(sql, new Object[]{newPwd, backuserid});
     }
 
+    public Object upPhone(int userid, String phone) {
+        String sql = "update user_table set phone=? where userid =?";
+        return baseDao.executeUpdate(sql, new Object[]{phone, userid});
+    }
+
+    public Object upPassword(int userid, String password) {
+        String sql = "update user_table set password=? where userid =?";
+        return baseDao.executeUpdate(sql, new Object[]{password, userid});
+    }
+    public Object upnumber_5(int userid, String number_5,String openid) {
+        String sql = "update user_table set number_5=? where userid =?";
+        Mahjong_Socket ws = Public_State.clients.get(openid);
+        if (ws != null) {
+            ws.userBean.setNumber_5(Integer.valueOf(number_5));
+        }
+        return baseDao.executeUpdate(sql, new Object[]{number_5, userid});
+    }
     /**
      * 查看后台管理列表
      *
@@ -1784,6 +1839,32 @@ public class BackUserDao {
         String sql = "UPDATE user_table SET diamond=diamond+?  where userid=?";
         String str = baseDao.executeUpdate(sql, new Object[]{diamond, userid});
         if ("success".equals(str)) {
+            insertdiamond(diamond, zuserid);
+            return "success";
+        }
+        return -1;
+    }
+
+    public Object updiamond_2(String userid, String diamond, String cuserid,String zuserid) {
+        String s = "SELECT diamond from user_table where userid=?";
+        baseDao.executeAll(s, new Object[]{userid});
+        int d = 0;
+        try {
+            if (baseDao.resultSet.next()) {
+                d = baseDao.resultSet.getInt("diamond");
+            }
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        if(d<Integer.valueOf(diamond)){
+            return "error";
+        }
+
+        String sql = "UPDATE user_table SET diamond=diamond+?  where userid=?";
+        String str = baseDao.executeUpdate(sql, new Object[]{diamond, cuserid});
+        if ("success".equals(str)) {
+            String sql2 = "UPDATE user_table SET diamond=diamond-?  where userid=?";
+            baseDao.executeUpdate(sql2, new Object[]{diamond, userid});
             insertdiamond(diamond, zuserid);
             return "success";
         }
@@ -2254,9 +2335,9 @@ public class BackUserDao {
      *
      * @return
      */
-    public Object updfreediamond(String establish_two, String establish_three, String establish_four) {
-        String sql = "UPDATE config_table SET establish_two=?,establish_three=?,establish_four=?";
-        return baseDao.executeUpdate(sql, new Object[]{establish_two, establish_three, establish_four});
+    public Object updfreediamond(String establish_two, String establish_three, String establish_four,String configid) {
+        String sql = "UPDATE config_table SET establish_two=?,establish_three=?,establish_four=? where configid = ?";
+        return baseDao.executeUpdate(sql, new Object[]{establish_two, establish_three, establish_four,configid});
     }
 
     /**
@@ -2341,6 +2422,30 @@ public class BackUserDao {
     }
 
     /**
+     * 查看牌友圈的钻石消耗记录
+     *
+     * @param circlenumber
+     * @return
+     */
+    public Object lookDiamondRecord(String circlenumber) {
+        ArrayList<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
+        String sql = "select * from diamond_record where clubid = ?";
+        String executeAll = baseDao.executeAll(sql, new Object[]{circlenumber});
+        try {
+            while (baseDao.resultSet.next() && "success".equals(executeAll)) {
+                Map<String, Object> map = UtilClass.utilClass.getSqlMap("/sql.properties", baseDao.resultSet,
+                        "sql_diamond_record");
+                list.add(map);
+            }
+            return list;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return null;
+
+    }
+
+    /**
      * 改牌
      *     list集合删除操作  可直接按索引删除  也遍历集合删除元素
      * @param roomnum
@@ -2399,11 +2504,6 @@ public class BackUserDao {
     public Object getgui(String backuserid) {
         Map<String, Object> map = new HashMap<String, Object>();
         // 任务权限
-        int backuserids = selectThirteenteen(backuserid);
-        if (backuserids == 0) {
-            map.put("state", 101);// 权限不足
-            return map;
-        }
         ArrayList<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
         String sql = "select * from game_introduce";
         String executeAll = baseDao.executeAll(sql, new Object[]{});

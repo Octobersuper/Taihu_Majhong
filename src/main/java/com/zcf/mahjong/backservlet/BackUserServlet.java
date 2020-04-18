@@ -3,6 +3,7 @@ package com.zcf.mahjong.backservlet;
 import com.google.gson.Gson;
 import com.zcf.mahjong.backbean.BackUserBean;
 import com.zcf.mahjong.backdao.BackUserDao;
+import com.zcf.mahjong.dao.Mg_GameDao;
 import com.zcf.mahjong.mahjong.Public_State;
 import com.zcf.mahjong.util.BaseDao;
 import org.apache.commons.lang3.StringUtils;
@@ -72,16 +73,47 @@ public class BackUserServlet extends HttpServlet {
 			}
 		}
 
+		// 后台代理登录
+		if ("dllogin".equals(type)) {
+			String account = request.getParameter("account");
+			String pwd = request.getParameter("pwd");
+			if (backUserDao.dllogin(account, pwd) != null) {
+				BackUserBean userbean = backUserDao.dllogin(account, pwd);
+				returnMap.put("data", userbean);
+			} else {
+				returnMap.put("data", "null");
+			}
+		}
+
 		// 后台管理修改昵称
 		if ("upuser".equals(type)) {
 			returnMap.put("state", backUserDao.upuser(Integer.parseInt(request.getParameter("backuserid")),
 					request.getParameter("backname")));
 		}
 
+		if ("refash".equals(type)) {
+			returnMap.put("date", backUserDao.refash(request.getParameter("userid")));
+		}
+
 		// 后台管理修改密码
 		if ("uppwd".equals(type)) {
 			returnMap.put("state", backUserDao.uppwd(Integer.parseInt(request.getParameter("backuserid")),
 					request.getParameter("oldPwd"), request.getParameter("newPwd")));
+		}
+
+		if ("upPhone".equals(type)) {
+			returnMap.put("state", backUserDao.upPhone(Integer.parseInt(request.getParameter("userid")),
+					request.getParameter("phone")));
+		}
+
+		if ("upPassword".equals(type)) {
+			returnMap.put("state", backUserDao.upPassword(Integer.parseInt(request.getParameter("userid")),
+					request.getParameter("password")));
+		}
+
+		if ("upnumber_5".equals(type)) {
+			returnMap.put("state", backUserDao.upnumber_5(Integer.parseInt(request.getParameter("userid")),
+					request.getParameter("number_5"),request.getParameter("openid")));
 		}
 
 		/**
@@ -380,6 +412,13 @@ public class BackUserServlet extends HttpServlet {
 			returnMap.put("status", backUserDao.downdiamond(request.getParameter("userid"),
 					request.getParameter("diamond"), request.getParameter("zuserid")));
 		}
+
+		// 充值钻石
+		if ("updiamond_2".equals(type)) {
+			returnMap.put("status", backUserDao.updiamond_2(request.getParameter("userid"),
+					request.getParameter("diamond"), request.getParameter("cuserid"), request.getParameter("zuserid")));
+		}
+
 		// 查看充值提现记录
 		if ("getrechargerecord".equals(type)) {
 			String pageNum = request.getParameter("pageNum");
@@ -473,6 +512,11 @@ public class BackUserServlet extends HttpServlet {
 			String circlenumber = request.getParameter("circlenumber");
 			returnMap.put("list", backUserDao.lookCircle(circlenumber));
 		}
+		// 查看俱乐部的用户信息
+		if ("lookDiamondRecord".equals(type)) {
+			String circlenumber = request.getParameter("circlenumber");
+			returnMap.put("list", backUserDao.lookDiamondRecord(circlenumber));
+		}
 		//查看活动介绍
 		if("getActivity".equals(type)){
 			returnMap.put("list", backUserDao.getActivity(request.getParameter("backuserid")));
@@ -512,7 +556,10 @@ public class BackUserServlet extends HttpServlet {
 			String establish_two = request.getParameter("tf") + "-" + request.getParameter("te") + "-" + request.getParameter("tst");
 			String establish_three = request.getParameter("thf") + "-" + request.getParameter("the") + "-" + request.getParameter("thst");
 			String establish_four = request.getParameter("ff") + "-" + request.getParameter("fe") + "-" + request.getParameter("fst");
-			returnMap.put("state", backUserDao.updfreediamond(establish_two,establish_three, establish_four));
+			String configid = request.getParameter("configid");
+			returnMap.put("state", backUserDao.updfreediamond(establish_two,establish_three, establish_four,configid));
+			Mg_GameDao m = new Mg_GameDao(new BaseDao());
+			m.getConfig();
 		}
 
 		/*****************************作弊牌型*********************************/

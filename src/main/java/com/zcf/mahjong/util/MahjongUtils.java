@@ -14,11 +14,12 @@ import java.util.List;
 public class MahjongUtils {
     public static MahjongUtils mahjongUtil = new MahjongUtils();
     //玩家属性
-    private UserBean userBean;
+    //private UserBean userBean;
     //房间属性
-    private RoomBean roomBean;
+    //private RoomBean roomBean;
     //触发胡牌牌值
-    private int brand;
+    //private int brand;
+    private int sum = 1;
 
     public MahjongUtils() {
 
@@ -28,9 +29,9 @@ public class MahjongUtils {
      * 构造器
      */
     public MahjongUtils(RoomBean roomBean, UserBean userBean, int brand) {
-        this.userBean = userBean;
-        this.roomBean = roomBean;
-        this.brand = brand;
+        //this.userBean = userBean;
+        //this.roomBean = roomBean;
+        //this.brand = brand;
     }
 
 
@@ -39,23 +40,29 @@ public class MahjongUtils {
      *
      * @return
      */
-    public void getBrandKe(RoomBean roomBean, UserBean userBean, Integer brand, int type) {
+    public void getBrandKe(RoomBean roomBean, UserBean userBean, Integer brand, int type,int sum) {
+    	/*if(type == 1){
+    		userBean.getBrands().add(brand);
+    	}*/
+    	this.sum = sum;
         //风刻子 1分 （ 风刻子即是：南、西、北其中三张同样的牌）； 28.29.30
         fkz(userBean);
         //1花1分，手中有三个同样的花算4分、四个同样的花6分（花牌暗杠则不再额外算花分）无花果牌型不算花分---------东、中、发、白为花牌
         yhyf(userBean);
         //碰碰胡  点炮5分、自摸10分；（胡牌时的牌型是AAA+AAA+AAA+AAA+AA的形式）
-        //pph(userBean,type);
+        pph(userBean,type);
         //清一色 5、点炮5分、自摸10分；
-        //qys(userBean,type);
+        qys(userBean,type);
         //小吊车 碰完杠完吃完手里的12张牌（必须有吃牌），余下一张吊将了，叫“小吊车”点炮5分、自摸10分；
-        //xdc(userBean,brand,type);
+        xdc(userBean,brand,type);
         //大吊车 （碰完杠完手里的12张牌，余下一张吊将了，叫“大吊车”。） 点炮10分、自摸20分；
-        //ddc(userBean,brand,type);
-        //小七对  （AA+AA+AA+AA+AA+AA+AA模式，最后胡牌是7个对子）点炮5分、自摸10分；
-        //xqd(userBean,brand,type);
+        ddc(userBean,brand,type);
         //大七对  （AA+AA+AA+AA+AA+AAAA模式，其中AAAA是没开的暗杠） 点炮10分、自摸20分；
-        //dqd(userBean,type);
+        boolean l = dqd(userBean,type,brand);
+        if(!l){
+            //小七对  （AA+AA+AA+AA+AA+AA+AA模式，最后胡牌是7个对子）点炮5分、自摸10分；
+            xqd(userBean,brand,type);
+        }
         //无花果  （手中没有东、中、发、白任意一张牌）自摸6分；
         if (type==2){
             whg(userBean);
@@ -87,13 +94,18 @@ public class MahjongUtils {
         }
         Collections.sort(userBrand);
         ArrayList<Integer> tempList = new ArrayList<>();
-        for (Integer brand: userBrand) {
-            if (brand==27||brand==31||brand==32||brand==33){
-                tempList.add(brand);
+        if(integers1.size()==0 && integers3.size()==0){
+            for (Integer brand: userBrand) {
+                if (brand==27||brand==31||brand==32||brand==33){
+                    tempList.add(brand);
+                }
             }
+        }else{
+            tempList.add(1);
         }
         if (tempList.size()==0){
-            userBean.setPower(6);
+            userBean.setPower(6*sum);
+			userBean.getRecordMsgList().add("无花果+"+2*sum);
         }
 
     }
@@ -103,26 +115,50 @@ public class MahjongUtils {
      * @param userBean
      * @return
      */
-    private void dqd(UserBean userBean,Integer type) {
-        List<Integer> userBrand = User_Brand_Value(userBean.getBrands());
-        List<Integer> hide_brands = userBean.getHide_brands();
-        if (hide_brands.size()==4){
-            Collections.sort(userBean.getBrands());
-            if (userBrand.size()==10){
-                boolean num = userBrand.get(0)==userBrand.get(1);
-                boolean num1 = userBrand.get(2)==userBrand.get(3);
-                boolean num2 = userBrand.get(4)==userBrand.get(5);
-                boolean num3 = userBrand.get(6)==userBrand.get(7);
-                boolean num4 = userBrand.get(8)==userBrand.get(9);
-                if (num&&num1&&num2&&num3&&num4){
-                    if (type==1){
-                        userBean.setPower(5);
-                    }else{
-                        userBean.setPower(10);
-                    }
-                }
-            }
-        }
+    private boolean dqd(UserBean userBean,Integer type,Integer brand) {
+    	 List<Integer> cards = User_Brand_Value(userBean.getBrands());
+         //cards.add(getBrand_Value(brand));
+         Collections.sort(cards);
+         List<Integer> pan = new ArrayList<>();
+         int count = 0;
+         boolean islong = false;
+         int sizhang = 0;
+         for(int i=0;i<cards.size();i++){
+             int num = 0;
+             for(int j=i+1;j<cards.size();j++){
+                 if(cards.get(j)==cards.get(i)){
+                     if(!pan.contains(cards.get(i))){
+                         count++;
+                     }
+                     pan.add(cards.get(i));
+                     num++;
+                 }
+             }
+             if(num == 3&&getBrand_Value(brand)==cards.get(i)){
+                 islong=true;
+             }
+             if(num==3){
+                 sizhang++;
+             }
+         }
+         boolean no = false;
+         if(count==5&&sizhang==2&&islong==true){
+        	 no = true;
+         }
+         if(count==6&&islong==true) {
+             no = true;
+         }
+         if(no){
+        	 if (type==1){
+                 userBean.setPower(10);
+ 				userBean.getRecordMsgList().add("大七对+10");
+             }else{
+                 userBean.setPower(20);
+  				userBean.getRecordMsgList().add("大七对+20");
+             }
+        	 return true;
+         }
+         return false;
     }
 
     /**
@@ -132,41 +168,30 @@ public class MahjongUtils {
      * @param type
      * @return
      */
-    private void xqd(UserBean userBean, Integer brand, Integer type) {
-        List<Integer> userBrand = User_Brand_Value(userBean.getBrands());
-        List<Integer> integers1 = User_Brand_Value(userBean.getShow_brands());
-        for (Integer integer : integers1) {
-            userBrand.add(integer);
-        }
-        List<Integer> integers2 = User_Brand_Value(userBean.getBump_brands());
-        for (Integer integer : integers2) {
-            userBrand.add(integer);
-        }
-        List<Integer> integers3 = User_Brand_Value(userBean.getHide_brands());
-        for (Integer integer : integers3) {
-            userBrand.add(integer);
-        }
-        List<Integer> integers4 = User_Brand_Value(userBean.getEat_brands());
-        for (Integer integer : integers4) {
-            userBrand.add(integer);
-        }
-        Collections.sort(userBrand);
-        if (userBrand.size()==14){
-            boolean num = userBrand.get(0)==userBrand.get(1);
-            boolean num1 = userBrand.get(2)==userBrand.get(3);
-            boolean num2 = userBrand.get(4)==userBrand.get(5);
-            boolean num3 = userBrand.get(6)==userBrand.get(7);
-            boolean num4 = userBrand.get(8)==userBrand.get(9);
-            boolean num5 = userBrand.get(10)==userBrand.get(11);
-            boolean num6 = userBrand.get(12)==userBrand.get(13);
-            if (num&&num1&&num2&&num3&&num4&&num4&&num5&&num6){
-                if (type==1){
-                    userBean.setPower(5);
-                }else{
-                    userBean.setPower(10);
-                }
+    private boolean xqd(UserBean userBean, Integer brand, Integer type) {
+    	List<Integer> userBrand = User_Brand_Value(userBean.getBrands());
+        //userBrand.add(getBrand_Value(brand));
+        if (userBrand.size() == 14) {
+            Collections.sort(userBrand);
+            boolean num = userBrand.get(0) == userBrand.get(1);
+            boolean num1 = userBrand.get(2) == userBrand.get(3);
+            boolean num2 = userBrand.get(4) == userBrand.get(5);
+            boolean num3 = userBrand.get(6) == userBrand.get(7);
+            boolean num4 = userBrand.get(8) == userBrand.get(9);
+            boolean num5 = userBrand.get(10) == userBrand.get(11);
+            boolean num6 = userBrand.get(12) == userBrand.get(13);
+            if (num && num1 && num2 && num3 && num4 && num4 && num5 && num6) {
+            	 if (type==1){
+                     userBean.setPower(5*sum);
+      				userBean.getRecordMsgList().add("小七对+"+5*sum);
+                 }else{
+                     userBean.setPower(10*sum);
+      				userBean.getRecordMsgList().add("小七对+"+10*sum);
+                 }
+            	 return true;
             }
         }
+        return false;
     }
 
     /**
@@ -181,9 +206,11 @@ public class MahjongUtils {
             List<Integer> userBrand = User_Brand_Value(userBean.getBrands());
             if (userBrand.size()==2&&userBrand.get(0)==brand){
                 if (type==1){
-                    userBean.setPower(10);
+                    userBean.setPower(10*sum);
+     				userBean.getRecordMsgList().add("大吊车+"+10*sum);
                 }else{
-                    userBean.setPower(20);
+                    userBean.setPower(20*sum);
+     				userBean.getRecordMsgList().add("大吊车+"+20*sum);
                 }
             }
         }
@@ -201,9 +228,11 @@ public class MahjongUtils {
             List<Integer> userBrand = User_Brand_Value(userBean.getBrands());
             if (userBrand.size()==2&&userBrand.get(0)==brand){
                 if (type==1){
-                    userBean.setPower(5);
+                    userBean.setPower(5*sum);
+     				userBean.getRecordMsgList().add("小吊车+"+5*sum);
                 }else{
-                    userBean.setPower(10);
+                    userBean.setPower(10*sum);
+     				userBean.getRecordMsgList().add("小吊车+"+10*sum);
                 }
             }
         }
@@ -215,82 +244,69 @@ public class MahjongUtils {
      * @param type
      */
     private void qys(UserBean userBean, int type) {
+        
+    	 //手牌整合
         List<Integer> userBrand = User_Brand_Value(userBean.getBrands());
-        List<Integer> integers1 = User_Brand_Value(userBean.getShow_brands());
-        for (Integer integer : integers1) {
+        for (Integer integer : User_Brand_Value(userBean.getShow_brands())) {
+        	if(integer!=27&&integer!=31&&integer!=32&&integer!=33){
+                userBrand.add(integer);
+        	}
+        }
+        for (Integer integer : User_Brand_Value(userBean.getBump_brands())) {
             userBrand.add(integer);
         }
-        List<Integer> integers2 = User_Brand_Value(userBean.getBump_brands());
-        for (Integer integer : integers2) {
+        for (Integer integer : User_Brand_Value(userBean.getHide_brands())) {
             userBrand.add(integer);
         }
-        List<Integer> integers3 = User_Brand_Value(userBean.getHide_brands());
-        for (Integer integer : integers3) {
+        for (Integer integer : User_Brand_Value(userBean.getEat_brands())) {
             userBrand.add(integer);
         }
-        List<Integer> integers4 = User_Brand_Value(userBean.getEat_brands());
-        for (Integer integer : integers4) {
-            userBrand.add(integer);
+        boolean no = false;
+        //去重
+        List<Integer> newList = new ArrayList<>();
+        for (Integer ban : userBrand) {
+            if (!newList.contains(ban)) {
+                newList.add(ban);
+            }
         }
+        //排序
         Collections.sort(userBrand);
-        ArrayList<Integer> wanList = new ArrayList<>();
-        for (int i = 0; i <9 ; i++) {
+        //创建万牌集合
+        List<Integer> wanList = new ArrayList<>();
+        for (int i = 0; i < 9; i++) {
             wanList.add(i);
         }
-        int wancount=0;
-        for (Integer brand : userBrand) {
-            for (Integer wanbrand : wanList) {
-            if (brand==wanbrand){
-                wancount++;
-            }
-            }
+        //判断
+        if (wanList.containsAll(newList)) {
+            no = true;
         }
-        ArrayList<Integer> tongList = new ArrayList<>();
+        //创建筒牌集合
+        List<Integer> tongList = new ArrayList<>();
         for (int i = 9; i < 18; i++) {
             tongList.add(i);
         }
-        int tongcount=0;
-        for (Integer brand : userBrand) {
-            for (Integer tongbrand : tongList) {
-                if (brand==tongbrand){
-                    tongcount++;
-                }
-            }
+        //判断
+        if (tongList.containsAll(newList)) {
+            no = true;
         }
-        ArrayList<Integer> tiaoList = new ArrayList<>();
+        //创建条牌集合
+        List<Integer> tiaoList = new ArrayList<>();
         for (int i = 18; i < 27; i++) {
             tiaoList.add(i);
         }
-        int tiaocount=0;
-        for (Integer brand : userBrand) {
-            for (Integer tiaobrand : tiaoList) {
-                if (brand==tiaobrand){
-                    tiaocount++;
-                }
-            }
+        //判断
+        if (tiaoList.containsAll(newList)) {
+            no = true;
         }
-        if (tiaocount==userBrand.size()){
-            if (type==1){
-                userBean.setPower(5);
+        if(no){
+        	if (type==1){
+                userBean.setPower(5*sum);
+ 				userBean.getRecordMsgList().add("清一色+"+5*sum);
             }else{
-                userBean.setPower(10);
+                userBean.setPower(10*sum);
+ 				userBean.getRecordMsgList().add("清一色+"+10*sum);
             }
         }
-        if (tongcount==userBrand.size()){
-            if (type==1){
-                userBean.setPower(5);
-            }else{
-                userBean.setPower(10);
-            }
-        }
-        if (wancount==userBrand.size()){
-            if (type==1){
-                userBean.setPower(5);
-            }else{
-                userBean.setPower(10);
-            }
-        }
-
     }
 
     /**
@@ -300,12 +316,54 @@ public class MahjongUtils {
      * @return
      */
     private void pph(UserBean userBean, int type) {
-        List<Integer> bumpList = User_Brand_Value(userBean.getBump_brands());
-        if (bumpList.size()==12){
-            if (type==1){
-                userBean.setPower(5);
-            }else{
-                userBean.setPower(10);
+        List<Integer> userBrands = User_Brand_Value(userBean.getBrands());
+        List<Integer> integers2 = User_Brand_Value(userBean.getBump_brands());
+        for (Integer integer : integers2) {
+            userBrands.add(integer);
+        }
+        Collections.sort(userBrands);
+
+        if(userBean.getHide_brands().size()==0){
+            List<Integer> th = new ArrayList<>();
+            List<Integer> two = new ArrayList<>();
+            for (Integer card:userBrands) {
+                int t3 = 0;
+                for (Integer c:userBrands) {
+                    if(card.equals(c)){
+                        t3++;
+                    }
+                }
+                if (t3==3){
+                    th.add(card);
+                }else if(t3==2){
+                    two.add(card);
+                }else{
+                    return;
+                }
+            }
+
+            //去重
+            List<Integer> newList = new ArrayList<>();
+            for (Integer ban : th) {
+                if (!newList.contains(ban)) {
+                    newList.add(ban);
+                }
+            }
+            //去重
+            List<Integer> two2 = new ArrayList<>();
+            for (Integer ban : two) {
+                if (!two2.contains(ban)) {
+                    two2.add(ban);
+                }
+            }
+            if(newList.size()==4&&two2.size()==1){
+                if (type==1){
+                    userBean.setPower(5*sum);
+                    userBean.getRecordMsgList().add("碰碰胡+"+5*sum);
+                }else{
+                    userBean.setPower(10*sum);
+                    userBean.getRecordMsgList().add("碰碰胡+"+10*sum);
+                }
             }
         }
     }
@@ -317,18 +375,22 @@ public class MahjongUtils {
      */
     private void yhyf(UserBean userBean) {
         List<Integer> userBrand = User_Brand_Value(userBean.getBrands());
+        
         List<Integer> integers1 = User_Brand_Value(userBean.getShow_brands());
         for (Integer integer : integers1) {
             userBrand.add(integer);
         }
+        
         List<Integer> integers2 = User_Brand_Value(userBean.getBump_brands());
         for (Integer integer : integers2) {
             userBrand.add(integer);
         }
+        
         List<Integer> integers3 = User_Brand_Value(userBean.getHide_brands());
         for (Integer integer : integers3) {
             userBrand.add(integer);
         }
+        
         List<Integer> integers4 = User_Brand_Value(userBean.getEat_brands());
         for (Integer integer : integers4) {
             userBrand.add(integer);
@@ -338,44 +400,104 @@ public class MahjongUtils {
         int zcount=0;
         int fcount=0;
         int bcount=0;
+        List<Integer> hua = new ArrayList<>();
         for (Integer brand : userBrand) {
             if (brand==27){
                 dcount++;
+                hua.add(brand);
             }
             if (brand==31){
                 zcount++;
+                hua.add(brand);
             }
             if (brand==32){
                 fcount++;
+                hua.add(brand);
             }
             if (brand==33){
                 bcount++;
+                hua.add(brand);
             }
         }
+        //东东东 白白白 发发 红   10花
+        int i = 0;
+
         if (dcount==3){
-            userBean.setPower(4);
+            i += 4*sum;
+        }else if (dcount==4){
+            i += 6*sum;
+        }else{
+            i += dcount*sum;
         }
-        if (dcount==4){
-            userBean.setPower(6);
-        }
+
         if (zcount==3){
-            userBean.setPower(4);
+            i += 4*sum;
+        }else if (zcount==4){
+            i += 6*sum;
+        }else{
+            i += zcount*sum;
         }
-        if (zcount==4){
-            userBean.setPower(6);
+
+        if (fcount==3){
+            i += 4*sum;
+        }else if (fcount==4){
+            i += 6*sum;
+        }else{
+            i += fcount*sum;
+        }
+
+        if (bcount==3){
+            i += 4*sum;
+        }else if (bcount==4){
+            i += 6*sum;
+        }else{
+            i += bcount*sum;
+        }
+        userBean.setPower(i);
+
+        userBean.setHuafen(i);
+        /*if (dcount==3){
+            userBean.setPower((4+s-dcount)*sum);
+            i += (4+s-dcount)*sum;
+            state=1;
+        }else if (dcount==4){
+            userBean.setPower((6+s-dcount)*sum);
+            i += (6+s-dcount)*sum;
+            state=1;
+        }
+
+        if (zcount==3){
+            userBean.setPower((4+s-zcount)*sum);
+            i += (4+s-zcount)*sum;
+            state=1;
+        }else if (zcount==4){
+            userBean.setPower((6+s-zcount)*sum);
+            i += (6+s-zcount)*sum;
+            state=1;
         }
         if (fcount==3){
-            userBean.setPower(4);
-        }
-        if (fcount==4){
-            userBean.setPower(6);
+            userBean.setPower((4+s-fcount)*sum);
+            i += (4+s-fcount)*sum;
+            state=1;
+        }else if (fcount==4){
+            userBean.setPower((6+s-fcount)*sum);
+            i += (6+s-fcount)*sum;
+            state=1;
         }
         if (bcount==3){
-            userBean.setPower(4);
+            userBean.setPower((4+s-bcount)*sum);
+            i += (4+s-bcount)*sum;
+            state=1;
+        }else if (bcount==4){
+            userBean.setPower((6+s-bcount)*sum);
+            i += (6+s-bcount)*sum;
+            state=1;
         }
-        if (bcount==4){
-            userBean.setPower(6);
+
+        if(state==0){
+            i = s*sum;
         }
+        userBean.setHuafen(i);*/
     }
 
     /**
@@ -416,14 +538,19 @@ public class MahjongUtils {
                 bcount++;
             }
         }
+        int feng = 0;
         if (ncount==3){
-            userBean.setPower(1);
+            feng += 1;
         }
         if (xcount==3){
-            userBean.setPower(1);
+            feng += 1;
         }
         if (bcount==3){
-            userBean.setPower(1);
+            feng += 1;
+        }
+        if(feng*sum!=0){
+            userBean.setPower(feng*sum);
+            userBean.getRecordMsgList().add("风刻子+"+feng*sum);
         }
     }
 /*******************************工具类*******************************/
@@ -473,9 +600,9 @@ public class MahjongUtils {
      */
     public List<Integer> User_Brand_Value(List<Integer> user_Brand){
         List<Integer> list = new ArrayList<Integer>();
-        /*for(int brand:user_Brand){
-            list.add(mahjong_Util.getBrand_Value(brand));
-        }*/
+        for(int brand:user_Brand){
+            list.add(getBrand_Value(brand));
+        }
         return list;
     }
 

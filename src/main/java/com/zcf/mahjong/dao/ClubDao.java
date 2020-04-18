@@ -35,7 +35,13 @@ public class ClubDao {
 	 * @return
 	 */
 	public int Update_Club_Money(int clubid,int diamond,int type){
-		String sql = "update game_card_circle set diamond=diamond"+(type==0?"-":"+")+"? where circleid=?";
+		//type:0 游戏减少钻石    1增加钻石
+		String ss = "insert into diamond_record values(?,NOW(),?,?,?)";
+		String content = type==0?"房卡扣除":"房卡充值";
+		baseDao.executeUpdate(ss,
+				new Object[] {null,diamond,clubid,content});
+
+		String sql = "update game_card_circle set diamond=diamond"+(type==0?"-":"+")+"? where circlenumber=?";
 		String state = baseDao.executeUpdate(sql, new Object[]{diamond,clubid});
 		return state.equals("success")?0:-1;
 	}

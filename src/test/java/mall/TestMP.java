@@ -23,7 +23,7 @@ public class TestMP {
 		GlobalConfig config = new GlobalConfig();
 		config.setActiveRecord(true) // 是否支持AR模式
 				.setAuthor("ZhaoQi") // 作者
-				.setOutputDir("C:\\Users\\Administrator\\Desktop\\开发的项目\\贵人贵州麻将\\项目\\nobleMahjong\\src\\main\\java") // 生成路径
+				.setOutputDir("C:\\Users\\Administrator\\Desktop\\开发的项目\\太湖麻将\\项目\\Taihu_Majhong\\src\\main\\java") // 生成路径
 				.setFileOverride(true)  // 文件覆盖D:\\workspace_mp\\mp03\\src\\main\\java
 				.setIdType(IdType.AUTO) // 主键策略
 				.setServiceName("%sService")  // 设置生成的service接口的名字的首字母是否为I
@@ -35,22 +35,26 @@ public class TestMP {
 		DataSourceConfig  dsConfig  = new DataSourceConfig();
 		dsConfig.setDbType(DbType.MYSQL)  // 设置数据库类型
 				.setDriverName("com.mysql.jdbc.Driver")
-				.setUrl("jdbc:mysql://47.102.220.79:3306/haoyi_mahjong")
+				.setUrl("jdbc:mysql://localhost:3306/taihu_mahjong")
 				.setUsername("root")
-				.setPassword("root");
+				.setPassword("123456");
 
 		//3. 策略配置
 		StrategyConfig stConfig = new StrategyConfig();
 		stConfig.setCapitalMode(true) //全局大写命名
 				.setDbColumnUnderline(true)  // 指定表名 字段名是否使用下划线
-				.setNaming(NamingStrategy.underline_to_camel).setInclude("pk_table");  // 数据库表映射到实体的命名策略
+				.setNaming(NamingStrategy.underline_to_camel).setInclude("cardtype");  // 数据库表映射到实体的命名策略
 //				.setTablePrefix("tbl_")
 		// 生成的表
 
 		//4. 包名策略配置
 		PackageConfig pkConfig = new PackageConfig();
 		pkConfig.setParent("com.zcf")
-				.setEntity("pojo");
+				.setMapper("com/zcf/mahjong/mapper")
+				.setService("service")
+				.setController("controller")
+				.setEntity("pojo")
+				.setXml("com/zcf/mahjong/mapper");
 
 		//5. 整合配置
 		AutoGenerator  ag = new AutoGenerator();
@@ -70,7 +74,7 @@ public class TestMP {
 		GlobalConfig config = new GlobalConfig();
 		config.setActiveRecord(true) // 是否支持AR模式
 				.setAuthor("ZhaoQi") // 作者
-				.setOutputDir("C:\\Users\\Administrator\\Desktop\\开发的项目\\贵人贵州麻将\\项目\\nobleMahjong\\src\\main\\java") // 生成路径
+				.setOutputDir("C:\\Users\\Administrator\\Desktop\\开发的项目\\太湖麻将\\项目\\Taihu_Majhong\\src\\main\\java") // 生成路径
 				.setFileOverride(true)  // 文件覆盖D:\\workspace_mp\\mp03\\src\\main\\java
 				.setIdType(IdType.AUTO) // 主键策略
 				.setServiceName("%sService")  // 设置生成的service接口的名字的首字母是否为I
@@ -82,7 +86,7 @@ public class TestMP {
 		DataSourceConfig  dsConfig  = new DataSourceConfig();
 		dsConfig.setDbType(DbType.MYSQL)  // 设置数据库类型
 				.setDriverName("com.mysql.jdbc.Driver")
-				.setUrl("jdbc:mysql://localhost:3306/haoyi_mahjong")
+				.setUrl("jdbc:mysql://localhost:3306/taihu_mahjong")
 				.setUsername("root")
 				.setPassword("123456");
 
@@ -90,7 +94,7 @@ public class TestMP {
 		StrategyConfig stConfig = new StrategyConfig();
 		stConfig.setCapitalMode(true) //全局大写命名
 				.setDbColumnUnderline(true)  // 指定表名 字段名是否使用下划线
-				.setNaming(NamingStrategy.underline_to_camel).setInclude("acount");  // 数据库表映射到实体的命名策略
+				.setNaming(NamingStrategy.underline_to_camel).setInclude("cardtype");  // 数据库表映射到实体的命名策略
 //				.setTablePrefix("tbl_")
 		// 生成的表
 

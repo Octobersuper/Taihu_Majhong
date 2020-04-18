@@ -1,0 +1,429 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="5a33ecb4-77cd-4b61-93b7-0deda216cb31" name="Default" comment="" />
+    <ignored path="$PROJECT_DIR$/.tmp/" />
+    <ignored path="$PROJECT_DIR$/temp/" />
+    <ignored path="$PROJECT_DIR$/tmp/" />
+    <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/index.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="2919">
+              <caret line="139" column="51" selection-start-line="139" selection-start-column="51" selection-end-line="139" selection-end-column="51" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="gamerecord.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/gamerecord.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1512">
+              <caret line="72" column="46" selection-start-line="72" selection-start-column="46" selection-end-line="72" selection-end-column="46" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="happy.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/happy.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="378">
+              <caret line="18" column="63" lean-forward="true" selection-start-line="18" selection-start-column="63" selection-end-line="18" selection-end-column="63" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="login.html" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/login.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="849">
+              <caret line="61" column="32" lean-forward="true" selection-start-line="61" selection-start-column="32" selection-end-line="61" selection-end-column="32" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="userlist.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/userlist.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="3633">
+              <caret line="173" column="82" lean-forward="true" selection-start-line="173" selection-start-column="82" selection-end-line="173" selection-end-column="82" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="updiamond.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/updiamond.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1743">
+              <caret line="83" column="19" lean-forward="true" selection-start-line="83" selection-start-column="19" selection-end-line="83" selection-end-column="19" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="updiamonds.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/updiamonds.html">
+          <provider selected="true" editor-type-id="text-editor" />
+        </entry>
+      </file>
+      <file leaf-file-name="common.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/js/common.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="63">
+              <caret line="5" column="31" lean-forward="true" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="HTML File" />
+      </list>
+    </option>
+  </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>4321</find>
+      <find>fIdTmp</find>
+      <find>withdrawdiamond</find>
+      <find>addc</find>
+      <find>del</find>
+      <find>addcon</find>
+      <find>userName</find>
+      <find>pass</find>
+      <find>getItem</find>
+      <find>setItem</find>
+      <find>barDemo1</find>
+      <find>current</find>
+      <find>ull</find>
+      <find>menuone</find>
+      <find>updatediamond</find>
+      <find>登录后</find>
+    </findStrings>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/happy.html" />
+        <option value="$PROJECT_DIR$/updgui2.html" />
+        <option value="$PROJECT_DIR$/gui_dali.html" />
+        <option value="$PROJECT_DIR$/room.html" />
+        <option value="$PROJECT_DIR$/updfreediamond.html" />
+        <option value="$PROJECT_DIR$/freediamond.html" />
+        <option value="$PROJECT_DIR$/updprop.html" />
+        <option value="$PROJECT_DIR$/prop.html" />
+        <option value="$PROJECT_DIR$/addinformation.js" />
+        <option value="$PROJECT_DIR$/service.html" />
+        <option value="$PROJECT_DIR$/ceshi.html" />
+        <option value="$PROJECT_DIR$/ceshi2.html" />
+        <option value="$PROJECT_DIR$/layui/css/layui.css" />
+        <option value="$PROJECT_DIR$/updatesystem.html" />
+        <option value="$PROJECT_DIR$/updatecard.html" />
+        <option value="$PROJECT_DIR$/backuser.html" />
+        <option value="$PROJECT_DIR$/mycircle.html" />
+        <option value="$PROJECT_DIR$/updiamonds.html" />
+        <option value="$PROJECT_DIR$/withdraw.html" />
+        <option value="$PROJECT_DIR$/card_circle.html" />
+        <option value="$PROJECT_DIR$/gamerecord2.html" />
+        <option value="$PROJECT_DIR$/lookCircle.html" />
+        <option value="$PROJECT_DIR$/lookCircle1.html" />
+        <option value="$PROJECT_DIR$/login.html" />
+        <option value="$PROJECT_DIR$/gamerecord.html" />
+        <option value="$PROJECT_DIR$/userlist.html" />
+        <option value="$PROJECT_DIR$/updiamond.html" />
+        <option value="$PROJECT_DIR$/js/common.js" />
+        <option value="$PROJECT_DIR$/index.html" />
+      </list>
+    </option>
+  </component>
+  <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
+  <component name="JsGulpfileManager">
+    <detection-done>true</detection-done>
+    <sorting>DEFINITION_ORDER</sorting>
+  </component>
+  <component name="NodePackageJsonFileManager">
+    <packageJsonPaths />
+  </component>
+  <component name="ProjectFrameBounds" extendedState="6">
+    <option name="x" value="226" />
+    <option name="y" value="134" />
+    <option name="width" value="1255" />
+    <option name="height" value="1047" />
+  </component>
+  <component name="ProjectView">
+    <navigator proportions="" version="1">
+      <foldersAlwaysOnTop value="true" />
+    </navigator>
+    <panes>
+      <pane id="Scope" />
+      <pane id="ProjectPane">
+        <subPane>
+          <expand>
+            <path>
+              <item name="dlback" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dlback" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="dlback" type="b2602c69:ProjectViewProjectNode" />
+              <item name="dlback" type="462c0819:PsiDirectoryNode" />
+              <item name="js" type="462c0819:PsiDirectoryNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="DefaultHtmlFileTemplate" value="HTML File" />
+    <property name="SearchEverywhereHistoryKey" value="getItem&#9;null&#9;null" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Administrator\Desktop\开发的项目\太湖麻将\项目\Taihu_Majhong\src\main\webapp\dlback" />
+      <recent name="C:\Users\Administrator\Desktop\开发的项目\太湖麻将\项目\Taihu_Majhong\src\main\webapp\dlback\js" />
+      <recent name="C:\Users\Administrator\Desktop\开发的项目\广州麻将\项目\Gz_Majhong\src\main\webapp\dlback" />
+      <recent name="C:\Users\Administrator\Desktop\开发的项目\太湖麻将\项目\Taihu_Majhong\src\main\webapp\back" />
+      <recent name="C:\Users\Administrator\Desktop\浩以麻将后台\back" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="ruleStates">
+      <list>
+        <RuleState>
+          <option name="name" value="ConfigurationTypeDashboardGroupingRule" />
+        </RuleState>
+        <RuleState>
+          <option name="name" value="StatusDashboardGroupingRule" />
+        </RuleState>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="5a33ecb4-77cd-4b61-93b7-0deda216cb31" name="Default" comment="" />
+      <created>1560935340186</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1560935340186</updated>
+      <workItem from="1560935341361" duration="2673000" />
+      <workItem from="1561081288640" duration="10000" />
+      <workItem from="1561183490156" duration="1000" />
+      <workItem from="1561185139630" duration="30000" />
+      <workItem from="1561340348970" duration="696000" />
+      <workItem from="1561426835574" duration="1277000" />
+      <workItem from="1561514769791" duration="1896000" />
+      <workItem from="1561598595398" duration="605000" />
+      <workItem from="1561691715131" duration="3129000" />
+      <workItem from="1561776417127" duration="2435000" />
+      <workItem from="1561953313875" duration="75000" />
+      <workItem from="1562030193763" duration="8228000" />
+      <workItem from="1562117717435" duration="1846000" />
+      <workItem from="1562228465630" duration="1383000" />
+      <workItem from="1562293293743" duration="3257000" />
+      <workItem from="1562393109914" duration="1728000" />
+      <workItem from="1562552344615" duration="1899000" />
+      <workItem from="1562831609825" duration="602000" />
+      <workItem from="1562909949466" duration="4570000" />
+      <workItem from="1562981151172" duration="635000" />
+      <workItem from="1563158837279" duration="4224000" />
+      <workItem from="1563245638915" duration="626000" />
+      <workItem from="1563520485743" duration="1595000" />
+      <workItem from="1563601043903" duration="1862000" />
+      <workItem from="1563776351297" duration="12000" />
+      <workItem from="1563783612422" duration="612000" />
+      <workItem from="1563848773399" duration="12000" />
+      <workItem from="1564455486631" duration="693000" />
+      <workItem from="1564566546199" duration="50000" />
+      <workItem from="1566027741475" duration="4743000" />
+      <workItem from="1566281689075" duration="8745000" />
+      <workItem from="1566349856677" duration="2384000" />
+      <workItem from="1566443778022" duration="1217000" />
+      <workItem from="1567064742414" duration="29000" />
+      <workItem from="1574399328397" duration="8717000" />
+      <workItem from="1574411801148" duration="3310000" />
+      <workItem from="1574475023817" duration="4179000" />
+      <workItem from="1575268656133" duration="20000" />
+      <workItem from="1575271919078" duration="7143000" />
+      <workItem from="1575336791187" duration="10000" />
+      <workItem from="1575423022875" duration="11197000" />
+      <workItem from="1575508736210" duration="36000" />
+      <workItem from="1575702977255" duration="308000" />
+      <workItem from="1575703470265" duration="1243000" />
+      <workItem from="1576203423712" duration="2102000" />
+      <workItem from="1578014721172" duration="1974000" />
+      <workItem from="1578910310529" duration="17000" />
+      <workItem from="1578964836652" duration="70000" />
+      <workItem from="1579140295655" duration="10398000" />
+      <workItem from="1579158232855" duration="1166000" />
+      <workItem from="1579395909624" duration="1552000" />
+      <workItem from="1579484364162" duration="1351000" />
+      <workItem from="1583284992533" duration="8000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TimeTrackingManager">
+    <option name="totallyTimeSpent" value="118580000" />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
+    <layout>
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.2125" />
+      <window_info anchor="bottom" id="TODO" order="6" />
+      <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" weight="0.32943678" />
+      <window_info anchor="bottom" id="Version Control" order="9" show_stripe_button="false" />
+      <window_info anchor="bottom" id="Run" order="2" />
+      <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
+      <window_info anchor="bottom" id="Terminal" order="8" />
+      <window_info id="Favorites" order="2" side_tool="true" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
+      <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
+      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
+      <window_info anchor="bottom" id="Find" order="1" weight="0.32943678" />
+      <window_info anchor="bottom" id="Message" order="0" />
+    </layout>
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2919">
+          <caret line="139" column="51" selection-start-line="139" selection-start-column="51" selection-end-line="139" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gamerecord.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1512">
+          <caret line="72" column="46" selection-start-line="72" selection-start-column="46" selection-end-line="72" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/happy.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="18" column="63" lean-forward="true" selection-start-line="18" selection-start-column="63" selection-end-line="18" selection-end-column="63" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/userlist.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3633">
+          <caret line="173" column="82" lean-forward="true" selection-start-line="173" selection-start-column="82" selection-end-line="173" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/updiamond.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1743">
+          <caret line="83" column="19" lean-forward="true" selection-start-line="83" selection-start-column="19" selection-end-line="83" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/updiamonds.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="5" column="31" lean-forward="true" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1281">
+          <caret line="61" column="32" lean-forward="true" selection-start-line="61" selection-start-column="32" selection-end-line="61" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/index.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2919">
+          <caret line="139" column="51" selection-start-line="139" selection-start-column="51" selection-end-line="139" selection-end-column="51" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/gamerecord.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1512">
+          <caret line="72" column="46" selection-start-line="72" selection-start-column="46" selection-end-line="72" selection-end-column="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/happy.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="18" column="63" lean-forward="true" selection-start-line="18" selection-start-column="63" selection-end-line="18" selection-end-column="63" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#body#0;n#html#0;n#!!top" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/userlist.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="3633">
+          <caret line="173" column="82" lean-forward="true" selection-start-line="173" selection-start-column="82" selection-end-line="173" selection-end-column="82" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/updiamond.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1743">
+          <caret line="83" column="19" lean-forward="true" selection-start-line="83" selection-start-column="19" selection-end-line="83" selection-end-column="19" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/updiamonds.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/js/common.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="5" column="31" lean-forward="true" selection-start-line="5" selection-start-column="31" selection-end-line="5" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/login.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="849">
+          <caret line="61" column="32" lean-forward="true" selection-start-line="61" selection-start-column="32" selection-end-line="61" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>

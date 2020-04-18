@@ -12,6 +12,7 @@ import com.zcf.mahjong.mahjong.Establish_PK;
 import com.zcf.mahjong.mahjong.Matching_PK;
 import com.zcf.mahjong.mahjong.Public_State;
 import com.zcf.mahjong.util.BaseDao;
+import com.zcf.mahjong.util.MahjongUtils;
 import com.zcf.mahjong.util.Mahjong_Util;
 
 public class M_GameService {
@@ -33,22 +34,34 @@ public class M_GameService {
 		// 房主支付
 		int index = 0;
 		if (Integer.parseInt(map.get("max_number")) == 4) {
-			index = 1;
+			index = 0;
 		}
 		if (Integer.parseInt(map.get("max_number")) == 8) {
-			index = 2;
+			index = 1;
 		}
 		if (Integer.parseInt(map.get("max_number")) == 16) {
-			index = 3;
+			index = 2;
 		}
 		int num = 0;
-		// 创建房间所需钻石(8局-16局-32局)
-		if (Integer.parseInt(map.get("max_person")) == 4) {
-			num = Integer.parseInt(Public_State.establish_four[index]);
-		} else if (Integer.parseInt(map.get("max_person")) == 3) {
-			num = Integer.parseInt(Public_State.establish_three[index]);
-		} else {
-			num = Integer.parseInt(Public_State.establish_two[index]);
+		Integer paytype = Integer.valueOf(map.get("paytype"));//0房主  1AA
+		if(paytype==0){
+			// 创建房间所需钻石(8局-16局-32局)
+			if (Integer.parseInt(map.get("max_person")) == 4) {
+				num = Integer.parseInt(Public_State.establish_four[index]);
+			} else if (Integer.parseInt(map.get("max_person")) == 3) {
+				num = Integer.parseInt(Public_State.establish_three[index]);
+			} else {
+				num = Integer.parseInt(Public_State.establish_two[index]);
+			}
+		}else{
+			// 创建房间所需钻石(8局-16局-32局)
+			if (Integer.parseInt(map.get("max_person")) == 4) {
+				num = Integer.parseInt(Public_State.establish_four_AA[index]);
+			} else if (Integer.parseInt(map.get("max_person")) == 3) {
+				num = Integer.parseInt(Public_State.establish_three_AA[index]);
+			} else {
+				num = Integer.parseInt(Public_State.establish_two_AA[index]);
+			}
 		}
 		int diamond = clubid == 0 ? gameDao
 				.getUserDiamond(userBean.getUserid()) : clubDao
@@ -65,6 +78,8 @@ public class M_GameService {
 		roomBean.setMoney(num);
 		// 加入自己
 		roomBean.getGame_userlist().add(userBean);
+		//支付方式
+		roomBean.setPaytype(paytype);
 		// 更新分数
 		userBean.setNumber(0);
 		// 添加坐标
@@ -168,12 +183,13 @@ public class M_GameService {
 	 * @param state
 	 * @return
 	 */
-	public int Is_Hu(RoomBean roomBean, int state) {
-		roomBean.getLock().lock();
+	public int Is_Hu(RoomBean roomBean, int state,UserBean user) {
 		if (state == 0) {
 			roomBean.setHucount(roomBean.getHucount() + 1);
+		}else{
+			user.setHu_state(0);
+			roomBean.getHu_user_list().add(user);
 		}
-		roomBean.getLock().unlock();
 		return roomBean.getHucount();
 	}
 
@@ -211,13 +227,13 @@ public class M_GameService {
 	 * @return
 	 */
 	public int End_Game_This(UserBean userBean, RoomBean roomBean) {
-
-		// 计算分数=房间底分*用户番数
-		int fen = roomBean.getDihua_ords() * userBean.getPower_number();
+		
 		int sumFen = 0;
+		int beishu = 1;
 		for (UserBean user : roomBean.getGame_userlist()) {
 			if (user.getUserid() != userBean.getUserid()) {
-				Integer integer1 = userBean.getBeichipeng().get(user.getUserid());
+				Integer integer1 = userBean.getBeichipeng().get(
+						user.getUserid());
 				Integer integer2 = userBean.getChipeng().get(user.getUserid());
 				if (integer2 == null) {
 					integer2 = 0;
@@ -226,18 +242,29 @@ public class M_GameService {
 					integer1 = 0;
 				}
 				int sum = 1;
-				if (integer2 >= 3) {
+				int chifen = 0;
+				if (integer2 >= 3 || integer1>=3) {
 					sum = 3;
+					chifen = (userBean.getPower_number() * sum)-userBean.getPower_number();
 				}
-				if(integer1 >= 3){
-					sum = 3;
+				if (sum > beishu) {
+					beishu = sum;
 				}
+				int fen = (userBean.getPower_number() + roomBean.getPiao() + chifen);
 				// 扣除失败者分数
-				user.setNumber(user.getNumber() - (fen * sum));
-				user.setDqnumber(-(fen * sum));
-				sumFen += fen * sum;
+				user.setNumber(user.getNumber() - fen);
+				user.setDqnumber(-fen);
+				sumFen += fen;
 			}
 		}
+		int huafen = userBean.getHuafen();// 花分
+		if (huafen != 0) {
+			userBean.getRecordMsgList().add("花+" + huafen);
+		}
+		if (roomBean.getPiao() != 0) {
+			userBean.getRecordMsgList().add("飘+" + roomBean.getPiao());
+		}
+
 		userBean.setNumber(sumFen + userBean.getNumber());
 		userBean.setDqnumber(sumFen);
 		return EndGame(roomBean, userBean);
@@ -256,14 +283,13 @@ public class M_GameService {
 		// Public_State.end_time + ":00");
 		// 判断是什么模式0个人
 		if (roomBean.getClubid() == 0) {
-			// 非免费时段才扣除&&是钻石模式
 
 			// 判断当前第一局则扣除钻石0房主模式1AA
-			if (roomBean.getGame_number() == 1) {
+			if (roomBean.getGame_number() == 1 && roomBean.getPaytype()==0) {
 				// 扣除房主钻石
 				gameDao.UpdateUserDiamond(roomBean.getHouseid(),
 						roomBean.getMoney(), 0);
-			} else if (roomBean.getGame_number() == 1) {
+			} else if (roomBean.getGame_number() == 1 && roomBean.getPaytype()==1) {
 				for (UserBean user : roomBean.getGame_userlist()) {
 					// 扣除用户钻石
 					gameDao.UpdateUserDiamond(user.getUserid(),
@@ -273,17 +299,20 @@ public class M_GameService {
 			}
 
 		} else {
-			// 俱乐部模式
-			// 非免费时段才扣除
-
-			// 茶馆模式扣除茶馆钻石
-
-			state = clubDao.Update_Club_Money(roomBean.getClubid(),
-					roomBean.getMoney(), 0);
-			if (state == -1) {
-				// 错误
+			if (roomBean.getGame_number() == 1 && roomBean.getPaytype()==0) {
+				// 俱乐部模式
+				state = clubDao.Update_Club_Money(roomBean.getClubid(),
+						roomBean.getMoney(), 0);
+			} else if (roomBean.getGame_number() == 1 && roomBean.getPaytype()==1) {
+				for (UserBean user : roomBean.getGame_userlist()) {
+					// 扣除用户钻石
+					gameDao.UpdateUserDiamond(user.getUserid(),
+							roomBean.getMoney()
+									/ roomBean.getGame_userlist().size(), 0);
+				}
+				//记录俱乐部AA总流水
+				gameDao.updateAA(roomBean.getClubid(),roomBean.getMoney()*roomBean.getGame_userlist().size());
 			}
-
 		}
 		// 更改结算状态
 		roomBean.setState(4);
@@ -333,10 +362,13 @@ public class M_GameService {
 	 * @return
 	 */
 	public int End_Game(UserBean userBean, RoomBean roomBean, int p_userid,
-			int state) {
+			int state,int brand) {
 		roomBean.getLock().lock();
-		// 设置自己已经同意结算
-		userBean.setHu_state(state);
+		// 设置所有人同意结算
+		for (UserBean user:roomBean.getHu_user_list()
+			 ) {
+			user.setHu_state(state);
+		}
 		if (roomBean.getState() == 4) {
 			roomBean.getLock().unlock();
 			return 500;// 已经结算
@@ -358,41 +390,85 @@ public class M_GameService {
 					i--;
 				}
 			}
-		} else {
-			if (state == 2) {
-				roomBean.getLock().unlock();
-				return 503;// 弃
-			}
 		}
-		// 弃胡
-		if (roomBean.getHu_user_list().size() == 0) {
-			return 503;
-		}
+
+
 		// 结算用户分数及总数
 		int sum_num = 0;
 		// 正在结算
 		roomBean.setState(3);
-		UserBean userBean2 = roomBean.getUserBean(p_userid);
-		Integer integer1 = userBean.getBeichipeng().get(userBean2.getUserid());
-		Integer integer2 = userBean.getChipeng().get(userBean2.getUserid());
-		if (integer2 == null) {
-			integer2 = 0;
+		UserBean userBean2 = roomBean.getUserBean(p_userid);//点炮者
+
+		for (UserBean user :
+				roomBean.getHu_user_list()) {
+			Integer integer1 = user.getBeichipeng().get(userBean2.getUserid());
+			Integer integer2 = user.getChipeng().get(userBean2.getUserid());
+			if (integer2 == null) {
+				integer2 = 0;
+			}
+			if (integer1 == null) {
+				integer1 = 0;
+			}
+			int sum = 1;
+			if (integer2 >= 3) {
+				sum = 3;
+			}
+			if (integer1 >= 3) {
+				sum = 3;
+			}
+			sum = sum * roomBean.getDihua_ords();// 吃三口乘以底花倍数
+			// 点炮 2分
+			user.setPower(2*sum);
+			user.getRecordMsgList().add("吃胡+"+2*sum);
+			if (roomBean.getPiao() != 0) {
+				user.getRecordMsgList().add("飘+" + roomBean.getPiao());
+			}
+			Map<String, Integer> show = user.getShowBars();
+			if(show.size()!=0){
+				int fan = 0;
+				if(show.get("wanG")!=0){
+					fan += (show.get("wanG")*5)*sum;
+				}
+				if(show.get("fengG")!=0){
+					fan += (show.get("fengG")*6)*sum;
+				}
+				if(fan!=0){
+					user.getRecordMsgList().add("明杠+" + fan);
+					user.setPower(fan);
+				}
+			}
+
+			Map<String, Integer> hide = user.getHideBars();
+			if(hide.size()!=0){
+				int fan = 0;
+				if(hide.get("wanG")!=0){
+					fan += (hide.get("wanG")*10)*sum;
+				}
+				if(hide.get("fengG")!=0){
+					fan += (hide.get("fengG")*12)*sum;
+				}
+				if(hide.get("huaG")!=0){
+					fan += (hide.get("huaG")*12)*sum;
+				}
+				if(fan!=0){
+					user.getRecordMsgList().add("暗杠+" + fan);
+					user.setPower(fan);
+				}
+			}
+
+			// 结算检测
+			MahjongUtils mahjongUtils = new MahjongUtils();
+			mahjongUtils.getBrandKe(roomBean, user, brand, 1,sum);
+			int huafen = user.getHuafen();// 花分 算法（花分+胡分）*sum+飘分
+			if (huafen != 0) {
+				user.getRecordMsgList().add("花+" + huafen);
+			}
+			// 计算分数=房间底分*用户番数
+			int fen = user.getPower_number() + roomBean.getPiao();
+			user.setNumber(user.getNumber() + fen);
+			user.setDqnumber(fen);
+			sum_num += fen;
 		}
-		if (integer1 == null) {
-			integer1 = 0;
-		}
-		int sum = 1;
-		if (integer2 >= 3) {
-			sum = 3;
-		}
-		if(integer1 >= 3){
-			sum = 3;
-		}
-		// 计算分数=房间底分*用户番数
-		int fen = (roomBean.getDihua_ords() * userBean.getPower_number()) * sum;
-		userBean.setNumber(userBean.getNumber() + fen);
-		userBean.setDqnumber(fen);
-		sum_num = fen;
 		// 扣除失败者分数
 		userBean2.setNumber(userBean2.getNumber() - sum_num);
 		userBean2.setDqnumber(-sum_num);
@@ -448,6 +524,7 @@ public class M_GameService {
 						user.getBrands(), outbrand);
 				userMap.put("userid", user.getUserid());
 				userMap.put("eat", user_eat);
+				userMap.put("eat_type", 0);
 				newReturnMap.put("eat", userMap);
 			}
 			// 检测碰/杠
@@ -477,6 +554,7 @@ public class M_GameService {
 			Map<String, Object> userMap = new HashMap<String, Object>();
 			userMap.put("userid", roomBean.getNextUserId3(userBean.getUserid()));
 			userMap.put("eat", user_eat);
+			userMap.put("eat_type", 0);
 			returnMap.put("eat", userMap);
 		} else {
 			returnMap.put("code", state);
@@ -554,15 +632,15 @@ public class M_GameService {
 			ttwList.add(i);
 		}
 		if (ttwList.contains(brand)) {
-			userBean.setPower(5);
+			userBean.getShowBars().put("wanG",userBean.getShowBars().get("wanG")+1);
 		}
-		// “南西北”明杠6分 28-30
+		// “南西北”明杠10分 28-30
 		ArrayList<Integer> nxbList = new ArrayList<>();
 		nxbList.add(28);
 		nxbList.add(29);
 		nxbList.add(30);
 		if (nxbList.contains(brand)) {
-			userBean.setPower(6);
+			userBean.getShowBars().put("fengG",userBean.getShowBars().get("fengG")+1);
 		}
 		// 获取出牌用户
 		UserBean user = roomBean.getUserBean(userid);
@@ -610,6 +688,22 @@ public class M_GameService {
 				i--;
 			}
 		}
+		// “筒条万”明杠5分 0-26
+		ArrayList<Integer> ttwList = new ArrayList<>();
+		for (int i = 0; i < 27; i++) {
+			ttwList.add(i);
+		}
+		if (ttwList.contains(brand)) {
+			userBean.getShowBars().put("wanG",userBean.getShowBars().get("wanG")+1);
+		}
+		// “南西北”明杠10分 28-30
+		ArrayList<Integer> nxbList = new ArrayList<>();
+		nxbList.add(28);
+		nxbList.add(29);
+		nxbList.add(30);
+		if (nxbList.contains(brand)) {
+			userBean.getShowBars().put("fengG",userBean.getShowBars().get("fengG")+1);
+		}
 		// 删除碰的牌
 		for (int i = 0; i < userBean.getBump_brands().size(); i++) {
 			if (brand == Mahjong_Util.mahjong_Util.getBrand_Value(userBean
@@ -649,7 +743,7 @@ public class M_GameService {
 			ttwList.add(i);
 		}
 		if (ttwList.contains(brand)) {
-			userBean.setPower(10);
+			userBean.getHideBars().put("wanG",userBean.getHideBars().get("wanG")+1);
 		}
 		// “南西北”暗杠12分； 28-30
 		ArrayList<Integer> nxbList = new ArrayList<>();
@@ -657,7 +751,7 @@ public class M_GameService {
 		nxbList.add(29);
 		nxbList.add(30);
 		if (nxbList.contains(brand)) {
-			userBean.setPower(12);
+			userBean.getHideBars().put("fengG",userBean.getHideBars().get("fengG")+1);
 		}
 		// 东、中、发、白 暗杠12分； 27-31-32-33
 		ArrayList<Integer> tempList = new ArrayList<>();
@@ -666,7 +760,7 @@ public class M_GameService {
 		tempList.add(32);
 		tempList.add(33);
 		if (tempList.contains(brand)) {
-			userBean.setPower(12);
+			userBean.getHideBars().put("huaG",userBean.getHideBars().get("huaG")+1);
 		}
 		for (int i = 0; i < userBean.getBrands().size(); i++) {
 			if (brand == Mahjong_Util.mahjong_Util.getBrand_Value(userBean
@@ -690,8 +784,12 @@ public class M_GameService {
 	 * @param index
 	 */
 	public void OutBrand(UserBean userBean, int index) {
-		userBean.getOut_brands().add(index);
-		userBean.Remove_Brands(index);
+		if(!userBean.getOut_brands().contains(index)){
+			userBean.getOut_brands().add(index);
+		}
+		if(userBean.getBrands().contains(index)){
+			userBean.Remove_Brands(index);
+		}
 	}
 
 	/**

@@ -20,7 +20,7 @@ import com.zcf.mahjong.util.UtilClass;
 
 /**
  * 前端接口
- * 
+ *
  * @author Administrator
  *
  */
@@ -100,6 +100,8 @@ public class Lighthouse_GameInterface extends HttpServlet {
 				map.put("state", "101");
 				returnMap.put("user", map);
 			} else {
+				//删除三天前战绩记录
+				mg_GameDao.delRecord();
 				returnMap.put("state", "0");
 				userBean.getUser_Custom("nickname-avatarurl-userid-diamond-openid-sex", returnMap);
 				if(Public_State.clients.get(userBean.getOpenid())!=null){
@@ -156,6 +158,11 @@ public class Lighthouse_GameInterface extends HttpServlet {
 		if ("ckgong".equals(type)) {
 			returnMap.put("type_s",type);
 			returnMap.put("ckgong", mg_GameDao.ckgong());
+			returnMap.put("establish_two",Public_State.establish_two );
+			returnMap.put("establish_four",Public_State.establish_four );
+
+			returnMap.put("establish_two_AA",Public_State.establish_two_AA );
+			returnMap.put("establish_four_AA",Public_State.establish_four_AA );
 		}
 
 		// 查看系统消息1
@@ -335,6 +342,21 @@ public class Lighthouse_GameInterface extends HttpServlet {
 			returnMap.put("state", mg_GameDao.downcricle(id, userid, circlenumber));
 		}
 
+		// 退出俱乐部0
+		if ("exitClub".equals(type)) {
+			int userid = Integer.parseInt(request.getParameter("userid"));
+			int circlenumber = Integer.parseInt(request.getParameter("circlenumber"));
+			returnMap.put("state", mg_GameDao.exitClub(userid, circlenumber));
+			returnMap.put("type_s", "exitClub");
+		}
+
+		//删除牌友圈
+		if("deletecricle".equals(type)){
+			// 牌友圈编号
+			int circlenumber = Integer.parseInt(request.getParameter("circlenumber"));
+			returnMap.put("state", mg_GameDao.deletecricle(circlenumber));
+		}
+
 		/********************************** 我的战绩 *****************************************/
 
 		// 查看战绩列表
@@ -399,7 +421,7 @@ public class Lighthouse_GameInterface extends HttpServlet {
 		if("getClubDetails".equals(type)){
 			returnMap.put("getClubDetails", mg_GameDao.getClubDetails(Integer.parseInt(request.getParameter("circlenumber"))));
 		}
-	
+
 		/********************************************************/
 		baseDao.CloseAll();
 		String json = gson.toJson(returnMap).toString();
@@ -410,5 +432,5 @@ public class Lighthouse_GameInterface extends HttpServlet {
 	public void init() throws ServletException {
 
 	}
-	
+
 }

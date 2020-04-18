@@ -13,7 +13,7 @@
 	height: auto;
 }
 .layui-table-box, .layui-table-view {
-    width: 1148px;
+    width: 100%;
 }
 </style>
 </head>
@@ -43,6 +43,9 @@
 			<script src="layer-v3.1.1/layer/mobile/layer.js"></script>
 			<script type="text/html" id="barDemo1">
 				<a class="layui-btn layui-btn-xs" lay-event="look">查看</a>
+			</script>
+			<script type="text/html" id="barDemo2">
+				<a class="layui-btn layui-btn-xs" lay-event="look2">查看</a>
 			</script>
 			<script>
 				var list;
@@ -102,13 +105,24 @@
 											title : '创建时间',
 											width : 160
 										}, {
+                                            field : 'aarecord',
+                                            title : 'AA制总流水',
+                                            align : 'center',
+                                            width : 120
+                                        }, {
+                                            title : '钻石消耗记录',
+                                            width : 140,
+                                            align : 'center',
+                                            toolbar : '#barDemo2'
+                                        } , {
 											field : 'personmax',
 											title : '在线/总数',
-											width : 160,
+                                            align : 'center',
+											width : 90,
 											templet : '<div><span>{{d.personnum}}</span>/<span>{{ d.count}}</span></div>'
 										}, {
 											title : '操作',
-											width : 160,
+											width : 80,
 											align : 'center',
 											toolbar : '#barDemo1'
 										} ]
@@ -158,7 +172,18 @@
 											area : [ '600px', '500px' ],
 											content : 'lookCircle.html?circlenumber=' + circlenumber
 										});
-									}
+									}else if (layEvent === 'look2') { //查看
+                                        var circlenumber = data.circlenumber;
+                                        localStorage.setItem("circlenumber", circlenumber)
+                                        layer.open({
+                                            type : 2,
+                                            title : '查看',
+                                            maxmin : true,
+                                            shadeClose : false, //点击遮罩关闭层
+                                            area : [ '600px', '500px' ],
+                                            content : 'lookDiamondRecord.html?circlenumber=' + circlenumber
+                                        });
+                                    }
 								});
 							});
 						}

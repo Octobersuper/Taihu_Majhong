@@ -157,9 +157,9 @@ public class Mahjong_Util {
 		List<Integer> list = userBean.getBrands();
 		list.add(index);
 		int state = IS_Victory(list,userBean,index);
-		if(state==0){
+		/*if(state==0){
 			userBean.Remove_Brands(index);
-		}
+		}*/
 		return state;
 	}
 	/**
@@ -637,5 +637,131 @@ public class Mahjong_Util {
 		String name = index[0]+1+"";
 		if(index[0]>26)name="";
 		return name+color;
+	}
+
+	public int checkHu(UserBean userBean,int outbrand) {
+		//手牌整合
+		List<Integer> userBrand = User_Brand_Value(userBean.getBrands());
+		userBrand.add(getBrand_Value(outbrand));
+		//排序
+		Collections.sort(userBrand);
+
+		for (int s = 0; s < 2; s++) {
+			ArrayList<Integer> brandlist = new ArrayList<>();
+			brandlist.addAll(userBrand);
+			if(s==0){
+				ArrayList<Integer> list = new ArrayList<>();
+				list.addAll(brandlist);
+				//去扑 abc
+				for (int j = 0; j < 2; j++) {
+					for (int i = 0; i < brandlist.size(); i++) {
+						ArrayList<Integer> list1 = new ArrayList<>();
+						Integer t = brandlist.get(i);
+						list1.add(t);
+						list1.add(t+1);
+						list1.add(t+2);
+						if(list.containsAll(list1)){
+							list.remove(t);
+							list.remove(Integer.valueOf(t+1));
+							list.remove(Integer.valueOf(t+2));
+							i = i+2;
+						}
+					}
+					brandlist.clear();
+					brandlist.addAll(list);
+				}
+				//去三对 aaa
+				int lenth = brandlist.size();
+				//去三对 aaa
+				int duizi = 0;
+				for (int i = 0; i < brandlist.size();i++) {
+					if(lenth!=brandlist.size()){
+						i = 0;
+						lenth = brandlist.size();
+					}
+					int t = brandlist.get(i);
+					ArrayList<Integer> list1 = new ArrayList<>();
+					list1.add(i);
+					for (int j = i+1; j < brandlist.size(); j++) {
+						if(brandlist.get(j)==t){
+							list1.add(j);
+						}
+					}
+					Collections.sort(list1);
+					if(list1.size()==2){
+						duizi++;
+					}
+					if(list1.size()>=2 && list1.size()<4){
+						for (int j = list1.size()-1; j >= 0; j--) {
+							list.remove(list1.get(j).intValue());
+						}
+					}
+					brandlist.clear();
+					brandlist.addAll(list);
+				}
+				System.out.println(list.toString());
+				System.out.println("对子个数："+duizi);
+				if(list.size()==0 && duizi==1){
+					return 0;
+				}
+			}
+			if(s==1){
+				ArrayList<Integer> list = new ArrayList<>();
+				list.addAll(brandlist);
+
+				int duizi = 0;
+				int lenth = brandlist.size();
+				//去三对 aaa
+				for (int i = 0; i < brandlist.size();i++) {
+					if(lenth!=brandlist.size()){
+						i = 0;
+						lenth = brandlist.size();
+					}
+					int t = brandlist.get(i);
+					ArrayList<Integer> list1 = new ArrayList<>();
+					list1.add(i);
+					for (int j = i+1; j < brandlist.size(); j++) {
+						if(brandlist.get(j)==t){
+							list1.add(j);
+						}
+					}
+					Collections.sort(list1);
+					if(list1.size()==2){
+						duizi++;
+					}
+					if(list1.size()>=2 && list1.size()<4){
+						for (int j = list1.size()-1; j >= 0; j--) {
+							list.remove(list1.get(j).intValue());
+						}
+					}
+					brandlist.clear();
+					brandlist.addAll(list);
+				}
+				System.out.println(list.toString());
+				//去扑 abc
+				for (int j = 0; j < 2; j++) {
+					for (int i = 0; i < brandlist.size(); i++) {
+						ArrayList<Integer> list1 = new ArrayList<>();
+						Integer t = brandlist.get(i);
+						list1.add(t);
+						list1.add(t+1);
+						list1.add(t+2);
+						if(list.containsAll(list1)){
+							list.remove(t);
+							list.remove(Integer.valueOf(t+1));
+							list.remove(Integer.valueOf(t+2));
+							i = i+2;
+						}
+					}
+					brandlist.clear();
+					brandlist.addAll(list);
+				}
+				System.out.println("对子个数："+duizi);
+				if(list.size()==0 && duizi==1){
+					return list.size();
+				}
+			}
+		}
+		return -1;
 	}
 }

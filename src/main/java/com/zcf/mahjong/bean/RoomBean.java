@@ -1,14 +1,13 @@
 package com.zcf.mahjong.bean;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 import com.google.gson.Gson;
+import com.zcf.mahjong.dao.M_GameDao;
 import com.zcf.mahjong.mahjong.Public_State;
+import com.zcf.mahjong.util.BaseDao;
 import com.zcf.mahjong.util.Mahjong_Util;
 
 public class RoomBean {
@@ -60,6 +59,8 @@ public class RoomBean {
 	private int hide_baruserid;
 	//补杠的人
 	private int repair_baruserid;
+	//补花的人
+	private int buhua_baruserid;
 	//胜利的人
 	private int victoryid=-1;
 	//是否有人胡牌
@@ -69,7 +70,7 @@ public class RoomBean {
 	//最后一次操作
 	private Map<String,Object> nextMap;
 	
-	private int dice;
+	private List<Integer> dice;
 	
 	//支付方式
 	private int paytype;
@@ -81,8 +82,43 @@ public class RoomBean {
 	private int dihua_ords;
 	//飘 0不飘 
 	private int piao;
-	
-	
+	private int gangnum;//连续杠的次数
+	//最后一次出的牌
+	private int lastBrand;
+	//最后一次出牌人id
+	private int lastUserid;
+
+	public int getLastBrand() {
+		return lastBrand;
+	}
+
+	public void setLastBrand(int lastBrand) {
+		this.lastBrand = lastBrand;
+	}
+
+	public int getLastUserid() {
+		return lastUserid;
+	}
+
+	public void setLastUserid(int lastUserid) {
+		this.lastUserid = lastUserid;
+	}
+
+	public int getGangnum() {
+		return gangnum;
+	}
+
+	public void setGangnum(int gangnum) {
+		this.gangnum = gangnum;
+	}
+
+	public int getBuhua_baruserid() {
+		return buhua_baruserid;
+	}
+	public void setBuhua_baruserid(int buhua_baruserid) {
+		this.buhua_baruserid = buhua_baruserid;
+	}
+
 	Map<String,Object> map = new HashMap<String, Object>();
 	public RoomBean(){
 		//用户座位
@@ -99,6 +135,7 @@ public class RoomBean {
 		this.hu_user_list = new ArrayList<UserBean>();
 		//记录碰的操作
 		this.nextMap = new HashMap<String, Object>();
+		this.gangnum = 1;
 	}
 	/**
 	 * 房间信息初始化
@@ -123,8 +160,10 @@ public class RoomBean {
 		this.show_baruserid=0;
 		this.hide_baruserid=0;
 		this.repair_baruserid=0;
+		this.buhua_baruserid=0;
 		this.onkey=-1;
 		this.state=1;
+		this.gangnum=1;
 	}
 	
 	/**
@@ -150,14 +189,65 @@ public class RoomBean {
 			}else{
 				number=13;
 			}
-			for(int i=0;i<number;i++){
-				int brands = getBrand_Random();
-				userBean.getBrands().add(brands);
-				userBean.getCopy_brands().add(brands);
+			int num = new Random().nextInt(10);//随机数
+			String s = String.valueOf(userBean.getNumber_5());
+			Integer c = 0;
+			if(s.equals("100")){
+				c = 10;
+			}else{
+				c = Integer.valueOf(s.substring(0, 1));//玩家的概率
 			}
+			if(num<c){//获取随机好牌
+				BaseDao baseDao = new BaseDao();
+				M_GameDao dao = new M_GameDao(baseDao);
+				String card_type = dao.getCard_type();
+				String[] split = card_type.split("-");
+				for(int i=0;i<number;i++){
+					if(i==13){
+						int brands = getBrand_Random();
+						userBean.getBrands().add(brands);
+						userBean.getCopy_brands().add(brands);
+					}else{
+						Integer brands = Integer.valueOf(split[i]);
+						if(this.brands.contains(brands)){
+							this.brands.remove(brands);
+							userBean.getBrands().add(brands);
+							userBean.getCopy_brands().add(brands);
+						}else{
+							brands = getBrand_Random();
+							userBean.getBrands().add(brands);
+							userBean.getCopy_brands().add(brands);
+						}
+					}
+				}
+				baseDao.CloseAll();
+			}else{//正常发牌
+				for(int i=0;i<number;i++){
+					int brands = getBrand_Random();
+					userBean.getBrands().add(brands);
+					userBean.getCopy_brands().add(brands);
+				}
+			}
+			/*List<Integer> list = new ArrayList<>();
+			if (userBean.getUserid() == this.banker) {
+				//int[] arr = new int[]{31,32,33,65,66,67,99,100,101,133,134,15,16,17};//测火箭 大三元用的
+				//int[] arr = new int[]{0,34,1,35,2,36,3,37,4,38,5,70,49,48};//测大板子用的 万
+				int[] arr = new int[]{9,43,10,44,11,45,12,46,13,47,22,23,35,34};//测大板子用的 两人场
+				for (int i = 0; i < arr.length; i++) {
+					list.add(arr[i]);
+				}
+				RemoveBrand(arr);
+				userBean.getBrands().addAll(list);
+				userBean.getCopy_brands().addAll(list);
+			} else {
+				for (int i = 0; i < 13; i++) {
+					int brands = getBrand_Random();
+					userBean.getBrands().add(brands);
+					userBean.getCopy_brands().add(brands);
+				}
+			}*/
 			//排序
 			Mahjong_Util.mahjong_Util.Order_Brands(userBean.getBrands());
-			
 		}
 	}
 	/**
@@ -266,7 +356,8 @@ public class RoomBean {
 	 * 获取下个操作人的id
 	 * @return
 	 */
-	public int getNextUserId(){int userid=-1;
+	public int getNextUserId(){
+		int userid=-1;
 		int thisindex=-1;
 		for(int i=0;i<user_positions.length;i++){
 			if(user_positions[i]==-1)continue;
@@ -552,6 +643,7 @@ public class RoomBean {
 		show_baruserid=0;
 		hide_baruserid=0;
 		repair_baruserid=0;
+		buhua_baruserid=0;
 	}
 	/**
 	 * 检测杠操作是否是自己
@@ -562,6 +654,7 @@ public class RoomBean {
 		if(show_baruserid==userid)return 1;
 		if(hide_baruserid==userid)return 2;
 		if(repair_baruserid==userid)return 3;
+		if(buhua_baruserid==userid)return 4;
 		return 0;
 	}
 	//所有用户重置准备
@@ -787,10 +880,10 @@ public class RoomBean {
 	public void setRepair_baruserid(int repair_baruserid) {
 		this.repair_baruserid = repair_baruserid;
 	}
-	public int getDice() {
+	public List<Integer>  getDice() {
 		return dice;
 	}
-	public void setDice(int dice) {
+	public void setDice(List<Integer>  dice) {
 		this.dice = dice;
 	}
 	public int getDihua_ords() {
@@ -886,4 +979,13 @@ public class RoomBean {
         //end_userid=userid;
         return userid;
     }
+
+	public Object getHu_id() {
+		ArrayList<Object> list = new ArrayList<>();
+		for (UserBean user:
+			 hu_user_list) {
+			list.add(user.getUserid());
+		}
+		return list;
+	}
 }

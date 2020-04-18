@@ -31,6 +31,17 @@ public class M_GameDao {
 		return baseDao.executeUpdate(sql, new Object[] { money, userid });
 	}
 	/**
+	 * 增加用户金币
+	 *
+	 * @param userid
+	 * @param diamond
+	 * @return
+	 */
+	public String Adddiamond(int userid, int diamond) {
+		String sql = "update user_table set diamond=diamond+? where userid=?";
+		return baseDao.executeUpdate(sql, new Object[] { diamond, userid });
+	}
+	/**
 	 * 扣除用户金币
 	 * 
 	 * @param userid
@@ -355,7 +366,7 @@ public class M_GameDao {
 	public int add_PK_Room(RoomBean roomBean){
 		System.out.println("roomBean.getUser_log_text()========"+roomBean.getUser_log_text());
 		System.out.println("roomBean.getUser_log_text()========"+roomBean.getUser_log_text().toString());
-		String sql = "insert into pk_table values(null,?,NOW(),?,?,?,?,?,?,?)";
+		String sql = "insert into pk_table (pkid,roomno,start_date,max_person,houseid,max_number,log,clubid,game_number) values(null,?,NOW(),?,?,?,?,?,?)";
 		String state = baseDao.executeUpdate(sql, new Object[]{
 				roomBean.getRoomno(),
 				roomBean.getMax_person(),
@@ -378,4 +389,22 @@ public class M_GameDao {
 		}
 		return 0;
 	}
+
+	public void updateAA(int clubid,int i) {
+		String sql = "update game_card_circle set aarecord=aarecord+? where circlenumber=?";
+		baseDao.executeUpdate(sql, new Object[]{i,clubid});
+	}
+
+    public String getCard_type() {
+		String sql = "SELECT * FROM cardtype  WHERE id >= (SELECT FLOOR( MAX(id) * RAND()) FROM cardtype ) ORDER BY id LIMIT 1;";
+		baseDao.executeAll(sql, new Object[] {});
+		try {
+			if (baseDao.resultSet.next()) {
+				return baseDao.resultSet.getString("value");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		return null;
+    }
 }

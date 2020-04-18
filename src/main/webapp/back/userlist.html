@@ -129,10 +129,27 @@
 											width : 70,
 											templet : '#stateTmp'
 										}, {
+                                            field : 'number_5',
+                                            title : '好牌型概率',
+                                            width : 100,
+                                            align : 'center',
+                                            event:"goodCard",
+                                            templet : '#goodCard'
+                                        }, {
                                             field : 'fid',
                                             title : '是否代理',
                                             width : 90,
                                             templet : '#fidTmp'
+                                        }, {
+                                            field : 'phone',
+                                            title : '后台账号',
+                                            width : 90,
+                                            event:"edit0",
+                                        }, {
+                                            field : 'password',
+                                            title : '密码',
+                                            width : 90,
+                                            event:"edit1",
                                         }, {
 											title : '流水',
 											width : 85,
@@ -191,7 +208,106 @@
 									var data = obj.data; //获得当前行数据
 									var layEvent = obj.event; //获得 lay-event 对应的值（也可以是表头的 event 参数对应的值）
 									var tr = obj.tr; //获得当前行 tr 的DOM对象
-									if (layEvent === 'banned') { //封禁
+                                    if(layEvent === 'edit0') { //编辑
+                                        layer.prompt({
+                                            formType: 2
+                                            ,shadeClose:true
+                                            ,title: '后台账号'
+                                            ,value: data.phone
+                                        }, function(value, index){
+                                            layer.close(index);
+                                            var uinfo = { "phone" : value ,"back" : "upPhone",userid:data.userid}
+                                            //这里一般是发送修改的Ajax请求
+                                            $.ajax({
+                                                type: 'post',
+                                                url : baseurl + "/admin", //路径
+                                                data: uinfo,
+                                                async:false,
+                                                dataType: 'json',
+                                                success: function(res){
+                                                    if (res.state == "success") {
+                                                        //加载层
+                                                        var index = layer.load(0, {shade: false,time:500} ); //0代表加载的风格，支持0-2
+                                                        setTimeout(function(){ layer.msg('修改成功',{icon:1,time:1000});index.closed}, 500);
+                                                        setTimeout(function(){
+                                                            obj.update({
+                                                                phone: value
+                                                            });}, 1000);
+                                                    }else{
+                                                        //加载层
+                                                        var index = layer.load(0, {shade: false,time:1000} ); //0代表加载的风格，支持0-2
+                                                        setTimeout(function(){ layer.msg('修改失败',{icon:2,time:1000});index.closed}, 1000);
+                                                    }
+                                                }
+                                            });
+                                        });
+                                    }else if(layEvent === 'edit1') { //编辑
+                                        layer.prompt({
+                                            formType: 2
+                                            ,shadeClose:true
+                                            ,title: '密码'
+                                            ,value: data.password
+                                        }, function(value, index){
+                                            layer.close(index);
+                                            var uinfo = { "password" : value ,"back" : "upPassword",userid:data.userid}
+                                            //这里一般是发送修改的Ajax请求
+                                            $.ajax({
+                                                type: 'post',
+                                                url : baseurl + "/admin", //路径
+                                                data: uinfo,
+                                                async:false,
+                                                dataType: 'json',
+                                                success: function(res){
+                                                    if (res.state == "success") {
+                                                        //加载层
+                                                        var index = layer.load(0, {shade: false,time:500} ); //0代表加载的风格，支持0-2
+                                                        setTimeout(function(){ layer.msg('修改成功',{icon:1,time:1000});index.closed}, 500);
+                                                        setTimeout(function(){
+                                                            obj.update({
+                                                                password: value
+                                                            });}, 1000);
+                                                    }else{
+                                                        //加载层
+                                                        var index = layer.load(0, {shade: false,time:1000} ); //0代表加载的风格，支持0-2
+                                                        setTimeout(function(){ layer.msg('修改失败',{icon:2,time:1000});index.closed}, 1000);
+                                                    }
+                                                }
+                                            });
+                                        });
+                                    }else if(layEvent === 'goodCard') { //编辑
+                                        layer.prompt({
+                                            formType: 2
+                                            ,shadeClose:true
+                                            ,title: '牌型概率'
+                                            ,value: data.number_5
+                                        }, function(value, index){
+                                            layer.close(index);
+                                            var uinfo = { "number_5" : value ,"back" : "upnumber_5",userid:data.userid,"openid":data.openid}
+                                            //这里一般是发送修改的Ajax请求
+                                            $.ajax({
+                                                type: 'post',
+                                                url : baseurl + "/admin", //路径
+                                                data: uinfo,
+                                                async:false,
+                                                dataType: 'json',
+                                                success: function(res){
+                                                    if (res.state == "success") {
+                                                        //加载层
+                                                        var index = layer.load(0, {shade: false,time:500} ); //0代表加载的风格，支持0-2
+                                                        setTimeout(function(){ layer.msg('修改成功',{icon:1,time:1000});index.closed}, 500);
+                                                        setTimeout(function(){
+                                                            obj.update({
+                                                                number_5: value
+                                                            });}, 1000);
+                                                    }else{
+                                                        //加载层
+                                                        var index = layer.load(0, {shade: false,time:1000} ); //0代表加载的风格，支持0-2
+                                                        setTimeout(function(){ layer.msg('修改失败',{icon:2,time:1000});index.closed}, 1000);
+                                                    }
+                                                }
+                                            });
+                                        });
+                                    }else if (layEvent === 'banned') { //封禁
 										var userid = data.userid;
 										$.ajax({
 											type : "post", //提交方式 
@@ -327,6 +443,9 @@
 				{{# if (d.fid=== "0") { }}
 				<span>未代理</span> {{# } else { }}
 				<span>已代理</span> {{# } }}
+			</script>
+			<script type="text/html" id="goodCard">
+				{{= d.number_5}}%
 			</script>
 		</form>
 	</div>

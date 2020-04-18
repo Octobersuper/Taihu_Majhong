@@ -13,7 +13,7 @@
 	height: auto;
 }
 .layui-table-box, .layui-table-view {
-    width: 491px;
+    width: 100%;
 }
 </style>
 <body>
@@ -69,6 +69,10 @@
 									data : list, //数据接口
 									cols : [
 										[ {
+                                            field : 'name',
+                                            title : '支付类型',
+                                            width : 122
+                                        }, {
 											field : 'establish_two',
 											title : '2人房消耗钻石',
 											width : 122
@@ -100,6 +104,7 @@
 									localStorage.setItem("establish_two", establish_two);
 									localStorage.setItem("establish_three", establish_three);
 									localStorage.setItem("establish_four", establish_four);
+                                    localStorage.setItem("configid", configid);
 									if (layEvent === 'update') {
 										layer.open({
 											type : 2,

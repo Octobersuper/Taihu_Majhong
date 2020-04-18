@@ -79,8 +79,67 @@ public class UserBean {
     private Map<Integer,Integer> chipeng;
     //是否只能自摸  0否  1是
     private int isDian;
+    //结算信息词条
+    private List<String> recordMsgList;
+    //花的总分
+	private int huafen;
+	//明杠记录(普通杠：wanG  风杠：fengG)
+	private Map<String,Integer> showBars;
+	//暗杠记录(普通杠：wanG  风杠：fengG 花杠：huaG)
+	private Map<String,Integer> hideBars;
+	//是否已吃三口 1是
+	private int ishuthis;
+	//好牌概率
+	private int number_5;
 
-    
+	public int getNumber_5() {
+		return number_5;
+	}
+
+	public void setNumber_5(int number_5) {
+		this.number_5 = number_5;
+	}
+
+	public int getIshuthis() {
+		return ishuthis;
+	}
+
+	public void setIshuthis(int ishuthis) {
+		this.ishuthis = ishuthis;
+	}
+
+	public Map<String, Integer> getShowBars() {
+		return showBars;
+	}
+
+	public void setShowBars(Map<String, Integer> showBars) {
+		this.showBars = showBars;
+	}
+
+	public Map<String, Integer> getHideBars() {
+		return hideBars;
+	}
+
+	public void setHideBars(Map<String, Integer> hideBars) {
+		this.hideBars = hideBars;
+	}
+
+	public int getHuafen() {
+		return huafen;
+	}
+
+	public void setHuafen(int huafen) {
+		this.huafen = huafen;
+	}
+
+	public List<String> getRecordMsgList() {
+		return recordMsgList;
+	}
+
+	public void setRecordMsgList(List<String> recordMsgList) {
+		this.recordMsgList = recordMsgList;
+	}
+
 	public Map<Integer, Integer> getBeichipeng() {
 		return beichipeng;
 	}
@@ -128,6 +187,15 @@ public class UserBean {
 		lock = new ReentrantLock(true);
 		this.chipeng = new HashMap<Integer, Integer>();
 		this.beichipeng = new HashMap<Integer, Integer>();
+		this.recordMsgList = new ArrayList<String>();
+		this.showBars = new HashMap<>();
+		showBars.put("wanG",0);
+		showBars.put("fengG",0);
+		showBars.put("huaG",0);
+		this.hideBars = new HashMap<>();
+		hideBars.put("wanG",0);
+		hideBars.put("fengG",0);
+		hideBars.put("huaG",0);
 	}
 
 	/**
@@ -140,6 +208,14 @@ public class UserBean {
 		this.bump_brands.clear();
 		this.show_brands.clear();
 		this.hide_brands.clear();
+		this.showBars.clear();
+		showBars.put("wanG",0);
+		showBars.put("fengG",0);
+		showBars.put("huaG",0);
+		this.hideBars.clear();
+		hideBars.put("wanG",0);
+		hideBars.put("fengG",0);
+		hideBars.put("huaG",0);
 		this.out_brands.clear();
 		this.chipeng.clear();
 		this.beichipeng.clear();
@@ -150,6 +226,8 @@ public class UserBean {
 		this.pass_bump=0;
 		this.pass_hu=0;
 		this.isDian=0;
+		this.ishuthis=0;
+		recordMsgList.clear();
 	}
 
 	/***
@@ -217,6 +295,9 @@ public class UserBean {
 				map.put(key, sex);
 			if (key.equals("isDian"))
 				map.put(key, isDian);
+			if (key.equals("recordMsgList")){
+				map.put(key, recordMsgList);
+			}
 		}
 	}
 

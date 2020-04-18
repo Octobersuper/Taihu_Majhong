@@ -24,19 +24,24 @@ public class Public_State {
 		public static int exit_time;
 		//创建房间房主支付对应配置
 		public static String[] establish_two;
-		//创建房间AA支付对应配置
 		public static String[] establish_three;
-		//创建俱乐部支付对应配置
 		public static String[] establish_four;
+
+		//创建AA支付对应配置
+		public static String[] establish_two_AA;
+		public static String[] establish_three_AA;
+		public static String[] establish_four_AA;
+
 		//初始钻石
 		public static int diamond;
 		public static String[] sorts = new String[]{"1-2-3","1-3-2","2-1-3","2-3-1","3-1-2","3-2-1","4-2-3","4-3-2","2-4-3","2-3-4","3-4-2","3-2-4"};
 		//操作日志记录类型
-		public static String[] types = new String[]{"out_brand","bump","endhu","hide_bar","show_bar","show_bar_brand","repair_bar_bump","get_brand"};
+		public static String[] types = new String[]{"out_brand","bump","endhu","hide_bar","show_bar","show_bar_brand","repair_bar_bump","get_brand","eat"};
 		//免费时段
 		public static String start_time;
 		public static String end_time;
-		static{
+
+	static{
 			//CheckOut.checkOut();
 			diamond = Integer.parseInt(UtilClass.utilClass.getTableName("/parameter.properties", "diamond"));
 			//启动windows窗口

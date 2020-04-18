@@ -31,7 +31,7 @@ public class roomTimer extends Thread{
             if ( Thread.currentThread().isInterrupted() ) {
                 System.out.println("线程终止");
                 break;
-            }
+            } 
             try {
                 Thread.sleep(1000);
                 System.out.println(timer);
@@ -41,6 +41,7 @@ public class roomTimer extends Thread{
             timer--;
             if(timer == 0){
             	if(myRoom.getExit_game()==1){
+            		System.out.println(myRoom.getExit_game());
             		ws.Exit_All();
             	}
             }

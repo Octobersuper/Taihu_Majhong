@@ -1,7 +1,7 @@
 /*var reg = /\d{1,3}\.\d{1,3}\.\d{1,3}\.\d{1,3}/;
 var ip = reg.exec(window.location.href)[0];
 var baseurl = "http://"+ip+":8080/Taihu_Mahjong";*/
-//var baseurl = "http://localhost:8080/Taihu_Majhong";
+//var baseurl = "http://192.168.31.81:8099/Taihu_Majhong";
 var baseurl = "http://103.193.175.59:8080//Taihu_Majhong";
 function getQueryString(name) {
 	var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)", "i");

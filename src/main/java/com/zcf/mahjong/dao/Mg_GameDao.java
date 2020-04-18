@@ -43,6 +43,17 @@ public class Mg_GameDao {
 		return baseDao.executeUpdate(sql, new Object[] { money, userid });
 	}
 	/**
+	 * 增加用户金币
+	 *
+	 * @param userid
+	 * @param money
+	 * @return
+	 */
+	public String AddMoney(int userid, int money) {
+		String sql = "update user_table set money=money+? where userid=?";
+		return baseDao.executeUpdate(sql, new Object[] { money, userid });
+	}
+	/**
 	 * 扣除用户钻石
 	 * 
 	 * @param userid
@@ -252,7 +263,8 @@ public class Mg_GameDao {
 	 * @return
 	 */
 	public void getConfig() {
-		String sql = "select * from config_table limit 0,1"; 
+		//读取房主支付配置
+		String sql = "select * from config_table where configid = 1";
 		baseDao.executeAll(sql, null);
 		try {
 			if (baseDao.resultSet.next()) {
@@ -260,6 +272,20 @@ public class Mg_GameDao {
 				Public_State.establish_two = baseDao.resultSet.getString("establish_two").split("-");
 				Public_State.establish_three = baseDao.resultSet.getString("establish_three").split("-");
 				Public_State.establish_four = baseDao.resultSet.getString("establish_four").split("-");
+			}
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+
+
+		//读取AA支付配置
+		String sql1 = "select * from config_table where configid = 2";
+		baseDao.executeAll(sql1, null);
+		try {
+			if (baseDao.resultSet.next()) {
+				Public_State.establish_two_AA = baseDao.resultSet.getString("establish_two").split("-");
+				Public_State.establish_three_AA = baseDao.resultSet.getString("establish_three").split("-");
+				Public_State.establish_four_AA = baseDao.resultSet.getString("establish_four").split("-");
 			}
 		} catch (SQLException e) {
 			e.printStackTrace();
@@ -662,6 +688,20 @@ public class Mg_GameDao {
 				//根据俱乐部编号查询人数
 				int counts=getUserNnum(circlenumber);
 				clubMap.put("counts",counts);
+
+				String sql2 = "SELECT gcc.circlenumber,gca.applyid,gu.userid,gu.nickname,gu.avatarurl FROM user_table AS gu LEFT JOIN game_card_apply AS gca ON gca.userid = gu.userid LEFT JOIN game_card_circle AS gcc ON gcc.circlenumber = gca.circlenumber WHERE gca.state = 0 and gcc.userid = ?";
+				ArrayList<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
+				Map<String, Object> maps = new HashMap<String, Object>();
+				String executeAlls = baseDao.executeAll(sql2, new Object[] { clubMap.get("userid") });
+				try {
+					while (baseDao.resultSet.next() && "success".equals(executeAlls)) {
+						maps = UtilClass.utilClass.getSqlMap("/sql.properties", baseDao.resultSet, "sql_getClubApplication");
+						list.add(maps);
+					}
+				} catch (SQLException e) {
+					e.printStackTrace();
+				}
+				clubMap.put("applynum",list.size());
                 return  clubMap;
 			}
         } catch (SQLException e) {
@@ -845,7 +885,7 @@ public class Mg_GameDao {
 			return "102";
 		}
 		//钻石
-		if(getUserDiamond(userid) < 5000){
+		if(getUserDiamond(userid) < 300){
 			return "104";
 		}
 		// 随机生成牌友圈编号
@@ -1617,7 +1657,7 @@ public class Mg_GameDao {
 	 */
 	public List<Map<String, Object>> getRecordRoom(int userid) {
         List<Map<String, Object>> list = new ArrayList<Map<String, Object>>();
-        String sql = "SELECT pt.roomno,pt.game_number, prt.number,pt.start_date,pt.log,pt.clubid,prt.userid,(SELECT nickname FROM user_table WHERE userid = prt.userid) nickname from pk_table pt LEFT JOIN pk_record_table prt ON pt.pkid = prt.roomid WHERE pt.pkid IN (SELECT roomid FROM pk_record_table WHERE userid = ?)";
+        String sql = "SELECT pt.roomno,pt.game_number, prt.number,pt.start_date,pt.log,pt.clubid,prt.userid,(SELECT nickname FROM user_table WHERE userid = prt.userid) nickname from pk_table pt LEFT JOIN pk_record_table prt ON pt.pkid = prt.roomid WHERE pt.pkid IN (SELECT roomid FROM pk_record_table WHERE userid = ?) order by start_date desc";
         String executeAll = baseDao.executeAll(sql, new Object[]{userid});
         try {
             while (baseDao.resultSet.next() && "success".equals(executeAll)) {
@@ -1894,10 +1934,43 @@ public class Mg_GameDao {
 		String sql = "update game_card_circle set diamond=diamond+? where circlenumber=?";
 		String str = baseDao.executeUpdate(sql, new Object[]{diamond, circlenumber});
 		if (str.equals("success")) {
+			String ss = "insert into diamond_record values(?,NOW(),?,?,?)";
+			baseDao.executeUpdate(ss,
+					new Object[] {null,diamond,circlenumber,"房卡充值"});
 			return "333";
 		}
 		return "444";
 	}
 
+	public Object deletecricle(int circlenumber) {
+		String sql = "delete  FROM game_card_user where circlenumber=?";
+		String sq2 = "delete  FROM game_card_circle where circlenumber=?";
+		String sq3 = "delete  FROM game_card_apply where circlenumber=?";
+		baseDao.executeUpdate(sq2, new Object[] { circlenumber });
+		baseDao.executeUpdate(sq3, new Object[] { circlenumber });
+		baseDao.executeUpdate(sql, new Object[] { circlenumber });
+		return "0";
+	}
 
+	/**
+	 * 退出俱乐部
+	 *
+	 * @param userid
+	 * @param circlenumber
+	 * @return
+	 */
+	public Object exitClub(int userid, int circlenumber) {
+		String sql = "delete  FROM game_card_user where userid=? and circlenumber=?";
+		baseDao.executeUpdate(sql, new Object[]{userid, circlenumber});
+		return "0";
+	}
+
+	/**
+	 * 删除三天前记录
+	 */
+	public void delRecord() {
+		//获取当前时间
+		String sql = "delete from pk_table where datediff(curdate(), start_date)>=3";
+		baseDao.executeUpdate(sql, new Object[]{});
+	}
 }
