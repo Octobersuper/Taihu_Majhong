@@ -204,7 +204,7 @@ public class MahjongUtils {
         List<Integer> eatList = User_Brand_Value(userBean.getEat_brands());
         if (eatList.size()==0){
             List<Integer> userBrand = User_Brand_Value(userBean.getBrands());
-            if (userBrand.size()==2&&userBrand.get(0)==brand){
+            if (userBrand.size()==2&&userBrand.get(0)==getBrand_Value(brand)){
                 if (type==1){
                     userBean.setPower(10*sum);
      				userBean.getRecordMsgList().add("大吊车+"+10*sum);
@@ -226,7 +226,7 @@ public class MahjongUtils {
         List<Integer> eatList = User_Brand_Value(userBean.getEat_brands());
         if (eatList.size()>0){
             List<Integer> userBrand = User_Brand_Value(userBean.getBrands());
-            if (userBrand.size()==2&&userBrand.get(0)==brand){
+            if (userBrand.size()==2&&userBrand.get(0)==getBrand_Value(brand)){
                 if (type==1){
                     userBean.setPower(5*sum);
      				userBean.getRecordMsgList().add("小吊车+"+5*sum);
@@ -316,9 +316,19 @@ public class MahjongUtils {
      * @return
      */
     private void pph(UserBean userBean, int type) {
+        if(userBean.getEat_brands().size()!=0 || userBean.getBrands().size()<=2){
+            return;
+        }
         List<Integer> userBrands = User_Brand_Value(userBean.getBrands());
-        List<Integer> integers2 = User_Brand_Value(userBean.getBump_brands());
-        for (Integer integer : integers2) {
+        for (Integer integer : User_Brand_Value(userBean.getShow_brands())) {
+            if(integer!=27&&integer!=31&&integer!=32&&integer!=33){
+                userBrands.add(integer);
+            }
+        }
+        for (Integer integer : User_Brand_Value(userBean.getBump_brands())) {
+            userBrands.add(integer);
+        }
+        for (Integer integer : User_Brand_Value(userBean.getHide_brands())) {
             userBrands.add(integer);
         }
         Collections.sort(userBrands);
@@ -333,7 +343,7 @@ public class MahjongUtils {
                         t3++;
                     }
                 }
-                if (t3==3){
+                if (t3>=3){
                     th.add(card);
                 }else if(t3==2){
                     two.add(card);
