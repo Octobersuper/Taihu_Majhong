@@ -1,9 +1,6 @@
 package com.zcf.mahjong.bean;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
@@ -91,6 +88,26 @@ public class UserBean {
 	private int ishuthis;
 	//好牌概率
 	private int number_5;
+	//不能碰杠的牌
+	private List<Integer> noany;
+	//不能胡的牌
+	private List<Integer> nohu;
+
+	public List<Integer> getNoany() {
+		return noany;
+	}
+
+	public void setNoany(List<Integer> noany) {
+		this.noany = noany;
+	}
+
+	public List<Integer> getNohu() {
+		return nohu;
+	}
+
+	public void setNohu(List<Integer> nohu) {
+		this.nohu = nohu;
+	}
 
 	public int getNumber_5() {
 		return number_5;
@@ -196,6 +213,8 @@ public class UserBean {
 		hideBars.put("wanG",0);
 		hideBars.put("fengG",0);
 		hideBars.put("huaG",0);
+		this.noany = new ArrayList<>();
+		this.nohu = new ArrayList<>();
 	}
 
 	/**
@@ -213,6 +232,8 @@ public class UserBean {
 		showBars.put("fengG",0);
 		showBars.put("huaG",0);
 		this.hideBars.clear();
+		this.nohu.clear();
+		this.noany.clear();
 		hideBars.put("wanG",0);
 		hideBars.put("fengG",0);
 		hideBars.put("huaG",0);
@@ -596,5 +617,4 @@ public class UserBean {
 				+ ", hide_brands=" + hide_brands + ", out_brands=" + out_brands + ", power_number=" + power_number
 				+ ", hu_state=" + hu_state + ", hu_type=" + hu_type + "]";
 	}
-
 }

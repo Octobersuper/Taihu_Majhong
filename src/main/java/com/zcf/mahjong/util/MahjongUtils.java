@@ -41,9 +41,9 @@ public class MahjongUtils {
      * @return
      */
     public void getBrandKe(RoomBean roomBean, UserBean userBean, Integer brand, int type,int sum) {
-    	/*if(type == 1){
+    	if(type == 1){
     		userBean.getBrands().add(brand);
-    	}*/
+    	}
     	this.sum = sum;
         //风刻子 1分 （ 风刻子即是：南、西、北其中三张同样的牌）； 28.29.30
         fkz(userBean);

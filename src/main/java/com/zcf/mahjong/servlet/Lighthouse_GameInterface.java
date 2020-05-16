@@ -159,9 +159,11 @@ public class Lighthouse_GameInterface extends HttpServlet {
 			returnMap.put("type_s",type);
 			returnMap.put("ckgong", mg_GameDao.ckgong());
 			returnMap.put("establish_two",Public_State.establish_two );
+			returnMap.put("establish_three",Public_State.establish_three );
 			returnMap.put("establish_four",Public_State.establish_four );
 
 			returnMap.put("establish_two_AA",Public_State.establish_two_AA );
+			returnMap.put("establish_three_AA",Public_State.establish_three_AA);
 			returnMap.put("establish_four_AA",Public_State.establish_four_AA );
 		}
 

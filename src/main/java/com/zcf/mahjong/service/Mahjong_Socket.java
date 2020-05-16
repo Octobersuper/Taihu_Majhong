@@ -800,6 +800,9 @@ public class Mahjong_Socket {
             userBean.setPass_hu(1);
             returnMap.put("type", "giveup_hu");
             sendMessageTo(returnMap);
+
+            userBean.getNohu().add(Integer.parseInt(jsonTo.get("brand")));//一轮不能胡这张
+            returnMap.put("nohu", userBean.getNohu());
             if (roomBean.getHu_user_list().size() <= 1) {
                 int state = gameService.OutBrand(roomBean, roomBean.getLastBrand(),
                         roomBean.getUserBean(roomBean.getLastUserid()), returnMap);
@@ -867,6 +870,8 @@ public class Mahjong_Socket {
         // 弃碰
         if ("giveup_bump2".equals(jsonTo.get("type"))) {
             int state = Integer.valueOf(jsonTo.get("code"));
+
+            //userBean.getNoany().add(mahjong_Util.getBrand_Value(Integer.parseInt(jsonTo.get("brand"))));//一轮不能胡这张
             if (state == 1) {
                 Integer outbrand = Integer.valueOf(jsonTo.get("outbrand"));// 出的牌
                 String out_userid = jsonTo.get("out_userid");// 出牌人ID
@@ -914,8 +919,16 @@ public class Mahjong_Socket {
             // 查找下一个摸牌用户
             returnMap.put("type", "brand_nextid");
             returnMap.put("brand_nextid", roomBean.getNextUserId());
-            sendMessageTo(returnMap);
-            sendMessageTo(returnMap, roomBean);
+            for (UserBean user :
+                    roomBean.getGame_userlist()) {
+                returnMap.put("nohu", user.getNohu());
+                if (user.getUserid() == Integer.valueOf(String.valueOf(returnMap.get("brand_nextid")))) {
+                    user.getNoany().clear();
+                    user.getNohu().clear();
+                    returnMap.put("nohu", user.getNohu());
+                }
+                Public_State.clients.get(user.getOpenid()).sendMessageTo(returnMap);
+            }
         }
         // 记录操作日志
         if (roomBean != null) {
